@@ -1,0 +1,235 @@
+import React, { Component } from "react";
+// import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { doLogOut, getBio } from "../store/actions/userAction";
+
+class Home extends Component {
+  componentDidMount = async () => {
+    await this.props.getBio();
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <Header {...this.props} />
+        <div className="section1 jumbotron jumbotron-fluid text-center">
+          <div className="container">
+            <h1 className="display-4 font-weight-bold">SeVoucher</h1>
+            <p className="lead">
+              Your In-app purchase place for better gaming experience
+            </p>
+            <Link
+              to="/games"
+              type="button"
+              className="btn btn-warning home-btn"
+            >
+              Browse Game
+            </Link>
+          </div>
+        </div>
+        <div className="section2 container">
+          <div className="row">
+            <div className="container">
+              <h1 className="section-title text-center my-5 font-weight-bold">
+                Voucher Categories
+              </h1>
+            </div>
+          </div>
+          <div className="row">
+            <div className="card-group">
+              <div className="card content">
+                <div className="content-overlay"></div>
+                <img
+                  className="card-img-top game-cetgory"
+                  src={require("../images/game-mobile.jpg")}
+                  alt="mobile-banner"
+                />
+                <div className="card-body content-details fadeIn-bottom">
+                  <h2 className="card-title text-center content-title">
+                    Mobile Games
+                  </h2>
+                </div>
+              </div>
+              <div className="card content game-home-div">
+                <div className="content-overlay"></div>
+                <img
+                  className="card-img-top game-cetgory"
+                  src={require("../images/game-pc.jpg")}
+                  alt="mobile-banner"
+                />
+                <div className="card-body content-details fadeIn-bottom">
+                  <h2 className="card-title text-center content-title">
+                    PC Games
+                  </h2>
+                </div>
+              </div>
+              <div className="card content">
+                <div className="content-overlay"></div>
+                <img
+                  className="card-img-top game-cetgory"
+                  src={require("../images/game-credits.jpg")}
+                  alt="mobile-banner"
+                />
+                <div className="card-body content-details fadeIn-bottom">
+                  <h2 className="card-title text-center content-title">
+                    Game Credits
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="section3 container">
+          <div className="row">
+            <div className="container">
+              <h1 className="section-title text-center my-5 font-weight-bold">
+                Popular Vouchers
+              </h1>
+            </div>
+          </div>
+          <div className="container mb-5">
+            <div className="row games-tile">
+              <div className="col">
+                <Link to="/">
+                  <img
+                    className="tile"
+                    src={require("../images/tile/mlbb_tile.jpg")}
+                    alt="game_tile"
+                  />
+                </Link>
+              </div>
+              <div className="col">
+                <Link to="/">
+                  <img
+                    className="tile"
+                    src={require("../images/tile/freefire_tile.jpg")}
+                    alt="game_tile"
+                  />
+                </Link>
+              </div>
+
+              <div className="col">
+                <Link to="/">
+                  <img
+                    className="tile"
+                    src={require("../images/tile/PUBG_tile.jpg")}
+                    alt="game_tile"
+                  />
+                </Link>
+              </div>
+              <div className="col">
+                <Link to="/">
+                  <img
+                    className="tile"
+                    src={require("../images/tile/codmobile_tile.jpg")}
+                    alt="game_tile"
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <Link to="/">
+                  <img
+                    className="tile"
+                    src={require("../images/tile/Blizzard_tile.jpg")}
+                    alt="game_tile"
+                  />
+                </Link>
+              </div>
+
+              <div className="col">
+                <Link to="/">
+                  <img
+                    className="tile"
+                    src={require("../images/tile/steam_tile.jpg")}
+                    alt="game_tile"
+                  />
+                </Link>
+              </div>
+              <div className="col">
+                <Link to="/">
+                  <img
+                    className="tile"
+                    src={require("../images/tile/psn_store_tile.jpg")}
+                    alt="game_tile"
+                  />
+                </Link>
+              </div>
+              <div className="col">
+                <Link to="/">
+                  <img
+                    className="tile"
+                    src={require("../images/tile/lor_tile.jpg")}
+                    alt="game_tile"
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="section4 jumbotron jumbotron-fluid text-right">
+          <div className="container">
+            <h1 className="lead font-weight-bold ">
+              Looking for the <span> DISCOUNTS?</span>
+            </h1>
+            <h1 className="lead font-weight-bold py-3"> Here it is!</h1>
+            <Link
+              to="/games"
+              type="button"
+              className="btn btn-warning home-btn"
+            >
+              See Discounts
+            </Link>
+          </div>
+        </div>
+        <div className="section5 container text-center">
+          <div className="row">
+            <div className="col-sm-4">
+              <i className="fas fa-stopwatch"></i>
+              <p>
+                <span>Fast Process</span>
+              </p>
+              <p>Every purchase you make will be processed at real-time.</p>
+            </div>
+            <div className="col-sm-4 mid-value">
+              <i className="fab fa-cc-mastercard"></i>
+              <p>
+                <span>Secure Payment</span>
+              </p>
+              <p>
+                Every purchase is secure thanks to our excellent online safety
+                standards.
+              </p>
+            </div>
+            <div className="col-sm-4">
+              <i className="fas fa-shopping-bag"></i>
+              <p>
+                <span>Simple Returns</span>
+              </p>
+              <p>
+                Every purchase you make comes with a 30-day money-back
+                guarantee.
+              </p>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </React.Fragment>
+    );
+  }
+}
+const mapStateToProps = (state) => {
+  return {
+    dataUser: state.user,
+  };
+};
+const mapDispatchToProps = {
+  doLogOut,
+  getBio,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
