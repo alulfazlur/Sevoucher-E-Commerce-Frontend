@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ToolProfile = (props) => {
+const ProfileHeader = (props) => {
   return (
     <React.Fragment>
       <div
@@ -59,4 +59,4 @@ const ToolProfile = (props) => {
   );
 };
 
-export default ToolProfile;
+export default ProfileHeader;

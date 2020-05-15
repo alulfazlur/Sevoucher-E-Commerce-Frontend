@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-const GameDetail = (props) => {
+const GameDescription = (props) => {
   return (
     <React.Fragment>
       <h1 className="game-title">{props.name}</h1>
@@ -53,4 +53,4 @@ const GameDetail = (props) => {
   );
 };
 
-export default GameDetail;
+export default GameDescription;

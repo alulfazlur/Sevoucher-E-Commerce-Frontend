@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import Header from "../components/HeaderOrange";
 import Footer from "../components/Footer";
-import GameList from "../components/ProductList";
+import GameList from "../components/GameList";
 import Search from "../components/Search";
 import { doLogOut, getBio } from "../store/actions/userAction";
 import { getGameList, changeInputGame } from "../store/actions/gameAction";

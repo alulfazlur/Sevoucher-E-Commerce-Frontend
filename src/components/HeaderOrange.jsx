@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ToolProfile from "./ToolProfile";
+import ProfileHeader from "./ProfileHeader";
 
 const Header = (props) => {
   return (
@@ -50,7 +50,7 @@ const Header = (props) => {
           </ul>
           {localStorage.getItem("login_status") ? (
             <div className="ml-lg-auto mr-lg-5">
-              <ToolProfile {...props} />
+              <ProfileHeader {...props} />
             </div>
           ) : (
             <ul className="nav navbar-nav navbar-right mr-auto mt-2 mt-lg-0">

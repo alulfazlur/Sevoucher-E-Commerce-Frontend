@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import Header from "../components/HeaderOrange";
 import Footer from "../components/Footer";
-import GameDetail from "../components/GameDetail";
+import GameDescription from "../components/GameDescription";
 import DropdownTransfer from "../components/DropdownTransfer";
 import { doLogOut, getBio } from "../store/actions/userAction";
 import { getGameList } from "../store/actions/gameAction";
@@ -33,7 +33,7 @@ class GameDetails extends Component {
           <div className="row">
             <div className="col-lg-5">
             {gameList.map((el, index) => (
-              <GameDetail 
+              <GameDescription 
               key={index}
                   name={el.name}
                   url={el.url}
