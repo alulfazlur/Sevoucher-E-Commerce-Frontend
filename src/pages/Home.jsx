@@ -6,10 +6,18 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { doLogOut, getBio } from "../store/actions/userAction";
+import { changeInputGame } from "../store/actions/gameAction";
 
 class Home extends Component {
   componentDidMount = async () => {
     await this.props.getBio();
+  };
+
+  changeRouter = (namaProduk) => {
+    localStorage.setItem("namaGame", namaProduk);
+    namaProduk = namaProduk.replace(/ /gi, "-");
+    this.props.history.replace("/game/" + namaProduk);
+    console.warn("cek route", this.props);
   };
 
   render() {
@@ -229,6 +237,7 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = {
+  changeInput: changeInputGame,
   doLogOut,
   getBio,
 };

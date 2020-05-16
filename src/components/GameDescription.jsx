@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
 const GameDescription = (props) => {
   return (
@@ -13,25 +12,25 @@ const GameDescription = (props) => {
       />
       <div className="row my-4 game-links d-flex justify-content-center">
         {props.gplay ? 
-          <a href={props.gplay} type="button" target="_blank" className="game-links-btn mr-2 btn btn-dark">
+          <a href={props.gplay} type="button" target="_blank" rel="noopener noreferrer" className="game-links-btn mr-2 btn btn-dark">
           Download
           <i className="ml-1 fab fa-google-play"></i>
         </a>
         : false}
         {props.appstore ? 
-        <a href={props.appstore} type="button" target="_blank" className="game-links-btn mr-2 btn btn-dark">
+        <a href={props.appstore} type="button" target="_blank" rel="noopener noreferrer" className="game-links-btn mr-2 btn btn-dark">
           Download
           <i className="ml-1 fab fa-app-store-ios"></i>
         </a>
         : false}
         {props.website ? 
-        <a href={props.website} type="button" target="_blank" className="game-links-btn mr-2 btn btn-dark">
+        <a href={props.website} type="button" target="_blank" rel="noopener noreferrer" className="game-links-btn mr-2 btn btn-dark">
           Website
           <i className="ml-1 fas fa-link"></i>
         </a>
         : false}
         {props.community ? 
-        <a href={props.community} type="button" target="_blank" className="game-links-btn btn btn-dark community">
+        <a href={props.community} type="button" target="_blank" rel="noopener noreferrer" className="game-links-btn btn btn-dark community">
           Community
           <i className="ml-1 fas fa-comments"></i>
         </a>

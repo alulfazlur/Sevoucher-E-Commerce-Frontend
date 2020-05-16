@@ -1,13 +1,4 @@
-const initialState = {
-  userName: "",
-  passWord: "",
-  name: "",
-  email: "",
-  avatar: "",
-  address: "",
-  phone: "",
-  status: "",
-};
+const initialState = {};
 
 export default function userReducer(userState = initialState, action) {
   switch (action.type) {

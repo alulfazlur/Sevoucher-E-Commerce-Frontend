@@ -10,9 +10,9 @@ const ProfileHeader = (props) => {
       >
         <ul className="navbar-nav">
           <li className="nav-item active">
-            <a className="nav-link" href="/">
+            <Link className="nav-link" to="/cart">
               <i className="fas fa-shopping-cart"></i>
-            </a>
+            </Link>
           </li>
           <li className="nav-item dropdown">
             <Link

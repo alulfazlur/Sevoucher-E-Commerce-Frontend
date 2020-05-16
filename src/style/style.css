@@ -40,6 +40,19 @@ html {
   left: 1%;
   margin-right: -50%;
 }
+.btn-warning{
+  color: white;
+  background-color: rgb(255, 145, 0);
+  border: rgb(255, 145, 0) 1px solid;
+}
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning:focus{
+  background-color: transparent;
+  color: rgb(255, 145, 0);
+  border: rgb(255, 145, 0) 1px solid;
+  box-shadow: none;
+}
 /* =================================== NAVBAR =================================== */
 .navbar {
   /* position: fixed !important; */
@@ -49,6 +62,12 @@ html {
   -webkit-box-shadow: 0px 8px 9px -9px rgba(255, 143, 38, 1);
   -moz-box-shadow: 0px 8px 9px -9px rgba(255, 143, 38, 1);
   box-shadow: 0px 8px 9px -9px rgba(255, 143, 38, 1);
+}
+.navbar-dark .dropdown-item:focus, .dropdown-item:hover{
+  background-color: rgb(255, 145, 0);
+}
+.bg-orange .dropdown-menu {
+  background-color: rgb(255, 145, 0) !important;
 }
 .navbar-dark .navbar-toggler {
   border-color: white !important;
@@ -511,29 +530,8 @@ html {
 /* =================================== GAME LISTS =================================== */
 .category-page {
   background-image: url(../images/logo/Logo_Icon.png);
-  /* url(../images/logo/Logo_Text.png); */
   background-repeat: no-repeat;
   background-position: bottom right;
-  /* top -5% left; */
-
-  /* background: rgb(255, 255, 255);
-  background: -moz-radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 70%,
-    rgb(255, 145, 0) 100%
-  );
-  background: -webkit-radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 70%,
-    rgb(255, 145, 0) 100%
-  );
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 70%,
-    rgb(255, 145, 0) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffcd0a",GradientType=1); */
-
   background-size: auto;
 }
 .category-page .card {
@@ -543,8 +541,6 @@ html {
   color: rgb(255, 145, 0);
 }
 .tile-game {
-  /* height: 150px; */
-  /* width: 158px; */
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -553,9 +549,6 @@ html {
   -webkit-transition-property: transform;
   transition-property: transform;
   object-fit: cover;
-}
-.card-game-category .card-body{
-  /* height: 150px; */
 }
 
 .tile-game:hover,
@@ -566,7 +559,6 @@ html {
 }
 .page-link {
   color: rgb(255, 145, 0) !important;
-  /* text-decoration: none; */
 }
 
 .btn-outline-warning:not(:disabled):not(.disabled).active,
@@ -617,7 +609,6 @@ html {
   border-radius: 50%;
   background-color: rgb(255, 145, 0);
   color: white;
-  /* font-size: 18px; */
   display: flex;
   justify-content: center;
   display: inline-flex;
@@ -642,6 +633,16 @@ html {
   -moz-box-shadow: 25px 5px 51px -23px rgba(255, 152, 56, 1);
   box-shadow: 25px 5px 51px -23px rgba(255, 152, 56, 1);
 }
+
+.add-to-cart, .add-to-cart-logo{
+  color: white !important;
+}
+.add-to-cart .btn-warning:hover .add-to-cart-logo,
+.add-to-cart .btn-warning:active .add-to-cart-logo,
+.add-to-cart .btn-warning:focus .add-to-cart-logo{
+  color: rgb(255, 145, 0) !important;
+}
+
 @media (max-width: 390px) {
   .community {
     margin-top: 10px;
@@ -659,7 +660,14 @@ html {
   background-color: rgb(255, 145, 0);
   border-color: transparent;
 }
-
+.voucher-input{
+  margin-top : 90px
+}
+@media (max-width: 992px) {
+  .voucher-input {
+    margin-top: 10px;
+  }
+}
 .btn-warning:not(:disabled):not(.disabled).active,
 .btn-warning:not(:disabled):not(.disabled):active,
 .show > .btn-warning.dropdown-toggle {
@@ -1082,3 +1090,36 @@ html {
   margin: 0 7px 7px 0;
   padding: 7px;
 }
+/* ========================================= /PROFILE ======================================== */
+/* ========================================= CART ======================================== */
+
+.cart-back{
+  background-image: url(../images/logo/Logo_Icon.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+.cart {
+  background-color: white;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 12px 1px rgba(201, 201, 201, 1);
+  -moz-box-shadow: 0px 0px 12px 1px rgba(201, 201, 201, 1);
+  box-shadow: 0px 0px 12px 1px rgba(201, 201, 201, 1);
+}
+.fa-money-bill{
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+/* ========================================= /CART ======================================== */
+/* ========================================= CHECKOUT ======================================== */
+.checkout {
+  background-color: white;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 12px 1px rgba(201, 201, 201, 1);
+  -moz-box-shadow: 0px 0px 12px 1px rgba(201, 201, 201, 1);
+  box-shadow: 0px 0px 12px 1px rgba(201, 201, 201, 1);
+}
+.check .container{
+  max-width: 750px !important;
+}
+/* ========================================= /CHECKOUT ======================================== */

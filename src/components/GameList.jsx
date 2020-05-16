@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const GameList = (props) => {
-  const changeRouter = (namaProduk) => {
-    localStorage.setItem("namaGame", namaProduk);
-    namaProduk = namaProduk.replace(/ /gi, "-");
-    props.history.replace("/game/" + namaProduk);
+  const changeRouter = (namaGame) => {
+    localStorage.setItem("namaGame", namaGame);
+    namaGame = namaGame.replace(/ /gi, "-");
+    props.history.replace("/game/" + namaGame);
     console.warn("cek route", props);
   };
 

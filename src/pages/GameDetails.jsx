@@ -1,40 +1,44 @@
 import React, { Component } from "react";
-// import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Header from "../components/HeaderOrange";
 import Footer from "../components/Footer";
 import GameDescription from "../components/GameDescription";
-import DropdownTransfer from "../components/DropdownTransfer";
 import { doLogOut, getBio } from "../store/actions/userAction";
 import { getGameList } from "../store/actions/gameAction";
+import {
+  getVouchersGame,
+  changeInputVoucher,
+} from "../store/actions/voucherAction";
 
 class GameDetails extends Component {
   componentDidMount = async () => {
     await this.props.getBio();
     await this.props.getGameList();
+    await this.props.getVouchersGame();
   };
 
   render() {
     let gameList = this.props.game;
     gameList = gameList.filter((item) => {
-        if (item.name == localStorage.getItem("namaGame")) {
-          return item;
-        }
-        return false;
-      });
-    
-    console.warn("gameList", gameList[0])
+      if (item.name === localStorage.getItem("namaGame")) {
+        return item;
+      }
+      return false;
+    });
+    let gameVoucher = this.props.voucher;
+    // console.log("gameList", gameList)
+    console.log("gameVoucher", gameVoucher);
     return (
       <React.Fragment>
         <Header {...this.props} />
         <div className="main container">
           <div className="row">
             <div className="col-lg-5">
-            {gameList.map((el, index) => (
-              <GameDescription 
-              key={index}
+              {gameList.map((el, index) => (
+                <GameDescription
+                  key={index}
                   name={el.name}
                   url={el.url}
                   tile={el.tile}
@@ -47,24 +51,19 @@ class GameDetails extends Component {
                   website={el.website}
                   community={el.community}
                   {...this.props}
-              />
-            ))}
+                />
+              ))}
             </div>
             <div className="col-1"></div>
-            <div className="col-lg-6">
+            <div className="col-lg-6 voucher-input">
               <div className="order-input order-input-id mb-4">
-                <div className="number-back mr-2 mb-3">1</div>Input User ID
+                <div className="number-back mr-2 mb-3">1</div>Input Game ID
                 <form className="container">
                   <div className="row">
                     <input
                       type="text"
                       className="form-control input-id-1"
                       placeholder="ID"
-                    />
-                    <input
-                      type="text"
-                      className="form-control input-id-2"
-                      placeholder="(Zone ID)"
                     />
                   </div>
                 </form>
@@ -82,48 +81,30 @@ class GameDetails extends Component {
                     className="row btn-group btn-group-toggle col-lg"
                     data-toggle="buttons"
                   >
-                    <label className="btn btn-warning active voucher-radio">
-                      <input
-                        type="radio"
-                        name="options"
-                        id="option1"
-                        autoComplete="off"
-                      />{" "}
-                      30 Diamond
-                    </label>
-                    <label className="btn btn-warning voucher-radio">
-                      <input
-                        type="radio"
-                        name="options"
-                        id="option2"
-                        autoComplete="off"
-                      />{" "}
-                      50 Diamond
-                    </label>
-                    <label className="btn btn-warning voucher-radio">
-                      <input
-                        type="radio"
-                        name="options"
-                        id="option3"
-                        autoComplete="off"
-                      />{" "}
-                      120 Diamond
-                    </label>
-                    <label className="btn btn-warning voucher-radio">
-                      <input
-                        type="radio"
-                        name="options"
-                        id="option3"
-                        autoComplete="off"
-                      />{" "}
-                      250 Diamond
-                    </label>
+                    {gameVoucher.map((el, index) => (
+                      <label
+                        className="btn btn-warning voucher-radio mt-1 p-1"
+                        key={index}
+                      >
+                        <input
+                          type="radio"
+                          name="voucherChosen"
+                          value={el.voucher}
+                          id="option1"
+                          autoComplete="off"
+                          onClick={(e) => this.props.changeInputVoucher(e)}
+                        />
+                        {el.voucher}
+                      </label>
+                    ))}
                   </div>
                 </div>
               </div>
-              <div className="order-input order-input-payment">
-                <div className="number-back mr-2 mb-3">3</div>Pilih Pembayaran
-                <DropdownTransfer />
+              <div className="add-to-cart justify-content-center">
+                <Link type="button" className="btn btn-warning">
+                  <i className="fas fa-shopping-cart add-to-cart-logo mr-1"></i>
+                  Add to cart
+                </Link>
               </div>
             </div>
           </div>
@@ -137,12 +118,14 @@ const mapStateToProps = (state) => {
   return {
     dataUser: state.user,
     game: state.game.gameList,
-
+    voucher: state.voucher.voucherGame,
   };
 };
 const mapDispatchToProps = {
   doLogOut,
   getBio,
-  getGameList
+  getGameList,
+  getVouchersGame,
+  changeInputVoucher,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(GameDetails);

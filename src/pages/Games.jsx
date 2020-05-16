@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-// import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 import Header from "../components/HeaderOrange";
 import Footer from "../components/Footer";
 import GameList from "../components/GameList";
 import Search from "../components/Search";
 import { doLogOut, getBio } from "../store/actions/userAction";
-import { getGameList, changeInputGame } from "../store/actions/gameAction";
+import { getGameList, changeInputGame, checkedFilter } from "../store/actions/gameAction";
 
 class Games extends Component {
   componentDidMount = async () => {
@@ -16,20 +14,28 @@ class Games extends Component {
     await this.props.getBio();
   };
 
+  changeRouterFilter = async (e) => {
+    await this.props.changeInputGame(e);
+    const category = this.props.category;
+    this.props.history.replace("/games/" + category);
+  };
+
   render() {
     let gameList = this.props.game;
     if (this.props.search && this.props.search.length > 2) {
       gameList = gameList.filter((item) => {
-        if (item.name.toLowerCase().includes(...this.props.search.toLowerCase())) {
+        if (
+          item.name.toLowerCase().includes(...this.props.search.toLowerCase())
+        ) {
           return item;
         }
         return false;
       });
     }
 
-    if (this.props.category){
+    if (this.props.category) {
       gameList = gameList.filter((item) => {
-        if (item.category == this.props.category) {
+        if (item.category === this.props.category) {
           return item;
         }
         return false;
@@ -38,7 +44,7 @@ class Games extends Component {
 
     if (this.props.sortby) {
       const sorted = (a, b) => {
-        if (this.props.sortby == "sort") {
+        if (this.props.sortby === "sort") {
           const gameA = a.name;
           const gameB = b.name;
           let comparison = 0;
@@ -48,19 +54,9 @@ class Games extends Component {
             comparison = -1;
           }
           return comparison;
-        } else if (this.props.sortby == "popular") {
-          const gameA = a.name;
-          const gameB = b.name;
-          let comparison = 0;
-          if (gameA > gameB) {
-            comparison = 1;
-          } else if (gameA < gameB) {
-            comparison = -1;
-          }
-          return comparison;
-        } else if (this.props.sortby == "discounts") {
-          const gameA = a.name;
-          const gameB = b.name;
+        } else if (this.props.sortby === "popular") {
+          const gameA = a.sold;
+          const gameB = b.sold;
           let comparison = 0;
           if (gameA > gameB) {
             comparison = 1;
@@ -101,7 +97,7 @@ class Games extends Component {
                     id="option1"
                     autocomplete="off"
                     value=""
-                    onClick={(e) => this.props.changeInput(e)}
+                    onClick={(e) => this.changeRouterFilter(e)}
                   />
                   All
                 </label>
@@ -112,7 +108,7 @@ class Games extends Component {
                     id="option2"
                     autocomplete="off"
                     value="mobile"
-                    onClick={(e) => this.props.changeInput(e)}
+                    onClick={(e) => this.changeRouterFilter(e)}
                   />
                   Mobile
                 </label>
@@ -123,7 +119,7 @@ class Games extends Component {
                     id="option3"
                     autocomplete="off"
                     value="pc"
-                    onClick={(e) => this.props.changeInput(e)}
+                    onClick={(e) => this.changeRouterFilter(e)}
                   />
                   PC
                 </label>
@@ -134,7 +130,7 @@ class Games extends Component {
                     id="option3"
                     autocomplete="off"
                     value="credits"
-                    onClick={(e) => this.props.changeInput(e)}
+                    onClick={(e) => this.changeRouterFilter(e)}
                   />
                   Credits
                 </label>
@@ -150,7 +146,7 @@ class Games extends Component {
                     id="option1"
                     autocomplete="off"
                     value="sort"
-                    onClick={(e) => this.props.changeInput(e)}
+                    onClick={(e) => this.props.changeInputGame(e)}
                   />
                   Sort
                 </label>
@@ -161,51 +157,39 @@ class Games extends Component {
                     id="option2"
                     autocomplete="off"
                     value="popular"
-                    onClick={(e) => this.props.changeInput(e)}
+                    onClick={(e) => this.props.changeInputGame(e)}
                   />
                   Popular
                 </label>
-                <label className="btn btn-outline-warning category-btn-2">
-                  <input
-                    type="radio"
-                    name="sortby"
-                    id="option3"
-                    autocomplete="off"
-                    value="discounts"
-                    onClick={(e) => this.props.changeInput(e)}
-                  />
-                  Discounts
-                </label>
               </div>
-              <Search {...this.props}/>
-              </div>
+              <Search {...this.props} />
             </div>
           </div>
+        </div>
 
-          <div className="container py-5 px-5 mt-5">
-            <div className="row">
-              {gameList.map((el, index) => (
-                <GameList
-                  key={index}
-                  name={el.name}
-                  url={el.url}
-                  tile={el.tile}
-                  banner={el.banner}
-                  publisher={el.publisher}
-                  description={el.description}
-                  category={el.category}
-                  gplay={el.gplay}
-                  appstore={el.appstore}
-                  website={el.website}
-                  community={el.community}
-                  discount={el.discount}
-                  {...this.props}
-                />
-              ))}
-            </div>
+        <div className="container py-5 px-5 mt-5">
+          <div className="row">
+            {gameList.map((el, index) => (
+              <GameList
+                key={index}
+                name={el.name}
+                url={el.url}
+                tile={el.tile}
+                banner={el.banner}
+                publisher={el.publisher}
+                description={el.description}
+                category={el.category}
+                gplay={el.gplay}
+                appstore={el.appstore}
+                website={el.website}
+                community={el.community}
+                discount={el.discount}
+                {...this.props}
+              />
+            ))}
           </div>
+        </div>
 
-          
         <Footer />
       </React.Fragment>
     );
@@ -218,12 +202,14 @@ const mapStateToProps = (state) => {
     category: state.game.category,
     search: state.game.search,
     sortby: state.game.sortby,
+    promo: state.game.promo,
   };
 };
 const mapDispatchToProps = {
-  changeInput: changeInputGame,
+  changeInputGame,
   doLogOut,
   getBio,
   getGameList,
+  checkedFilter
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Games);

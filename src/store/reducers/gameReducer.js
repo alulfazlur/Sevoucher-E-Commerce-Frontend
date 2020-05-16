@@ -1,19 +1,5 @@
 const initialState = {
-  gameName: "",
-  tile: "",
-  banner: "",
-  publisher: "",
-  description: "",
-  category: "",
-  gplay: "",
-  appstore: "",
-  website: "",
-  community: "",
-  promo: "",
-  discount: "",
   gameList:[],
-  sortby:"",
-  search:""
 };
 
 export default function gameReducer(gameState = initialState, action) {
@@ -32,6 +18,14 @@ export default function gameReducer(gameState = initialState, action) {
         ...gameState,
         gameList: action.payload
       };
+      case "CHEKCBOX_CHECKED":
+        return {
+          ...gameState,
+        };
+      case "CHEKCBOX_UNCHECKED":
+        return {
+          ...gameState,
+        };
     default:
       return gameState;
   }

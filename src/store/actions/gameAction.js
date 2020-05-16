@@ -74,3 +74,18 @@ export const changeInputGame = (e) => {
     payload: e,
   };
 };
+
+export const checkedFilter = (e) => {
+  if (e.target.checked) {
+    localStorage.setItem("promo", true)
+    return {
+      type: "CHEKCBOX_CHECKED",
+    };
+  } else {
+    localStorage.setItem("promo", false)
+    return {
+      type: "CHEKCBOX_UNCHECKED",
+      payload: e,
+    };
+  }
+};
