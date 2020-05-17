@@ -16,7 +16,7 @@ const Search = (props) => {
         aria-label="Input group example"
         aria-describedby="btnGroupAddon2"
         name="search"
-        onChange={(e) => props.changeInput(e)}
+        onChange={(e) => props.changeInputGame(e)}
       />
     </div>
   );

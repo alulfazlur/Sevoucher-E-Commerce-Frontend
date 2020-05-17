@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 body {
-  /* font-family: "Roboto", sans-serif !important; */
   font-family: "Jost", sans-serif !important;
   background-color: #f4f4f4;
 }
@@ -17,7 +16,6 @@ html {
 
 .main {
   margin-top: 110px;
-  /* overflow: hidden !important; */
 }
 .section-title {
   color: #343a40;
@@ -55,10 +53,7 @@ html {
 }
 /* =================================== NAVBAR =================================== */
 .navbar {
-  /* position: fixed !important; */
-  /* top: 0 !important; */
   width: 100%;
-  /* background-color: white !important; */
   -webkit-box-shadow: 0px 8px 9px -9px rgba(255, 143, 38, 1);
   -moz-box-shadow: 0px 8px 9px -9px rgba(255, 143, 38, 1);
   box-shadow: 0px 8px 9px -9px rgba(255, 143, 38, 1);
@@ -87,7 +82,6 @@ html {
   background-color: #343a40 !important;
 }
 .navbar-brand {
-  /* margin-right: 480px; */
   width: 150px;
 }
 .nav-link {
@@ -224,8 +218,6 @@ html {
   position: relative;
   width: 90%;
   max-width: 400px;
-  /* margin: auto; */
-  /* overflow: hidden; */
 }
 .content .content-overlay {
   background: rgba(0, 0, 0, 0.7);
@@ -357,19 +349,25 @@ html {
   -webkit-box-shadow: 15px 16px 9px -9px rgba(0, 0, 0, 1);
   -moz-box-shadow: 15px 16px 9px -9px rgba(0, 0, 0, 1);
   box-shadow: 15px 16px 9px -9px rgba(0, 0, 0, 1);
+  transition: 0.3s;
+}
+
+.tile:hover,
+.tile:focus,
+.tile:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.05);
 }
 @media (max-width: 479px) {
   .section3 .container {
     display: flex !important;
     justify-content: center !important;
-    /* margin-left: 20px !important; */
   }
 }
 /* =================================== /DISCOUNTS =================================== */
 
 /* =================================== FOOTER =================================== */
 
-/* Footer */
 .footer {
   background-color: #343a40;
   margin-top: 60px;
@@ -432,7 +430,6 @@ html {
   width: 120px;
   margin-left: 10px;
   margin-right: 10px;
-  /* background-color: rgb(255, 145, 0); */
 }
 .category-btn-2 {
   width: auto !important;
@@ -478,7 +475,6 @@ html {
     margin-top: 10px;
   }
   .search-category {
-    /* padding-left: 10px; */
   }
   .category-page .card {
     width: 200px;
@@ -490,7 +486,6 @@ html {
   }
   .search-category {
     width: 90%;
-    /* padding-left: 15px; */
   }
 }
 @media (max-width: 479px) {
@@ -508,12 +503,10 @@ html {
     margin: 0 !important;
   }
   .second-category {
-    /* width: 60; */
     margin-right: 100px !important;
   }
   .search-category {
     width: 90%;
-    /* padding-left: 15px; */
   }
 }
 @media (max-width: 366px) {
@@ -794,14 +787,11 @@ html {
 }
 
 .bg-gra-01 {
-  background: -webkit-linear-gradient(
-    bottom,
-    rgb(255, 145, 0) 0%,
-    #f4f4f4 100%
-  );
-  background: -moz-linear-gradient(bottom, rgb(255, 145, 0) 0%, #f4f4f4 100%);
-  background: -o-linear-gradient(bottom, rgb(255, 145, 0) 0%, #f4f4f4 100%);
-  background: linear-gradient(to top, rgb(255, 145, 0) 0%, #f4f4f4 100%);
+  background-image: url(../images/back.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: url(https://thetecheducation.com/wp-content/uploads/2020/04/fb462cfc55c2fa522b65ee4c8a437164.jpg); */
 }
 
 .signin .p-t-100 {
@@ -851,7 +841,7 @@ html {
   line-height: 40px;
   padding: 0 33px;
   cursor: pointer;
-  color: #fff;
+  color: rgb(255, 145, 0);
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -902,13 +892,13 @@ html {
 .signin .input--style-3 {
   padding: 5px 0;
   font-size: 16px;
-  color: #ccc;
+  color: rgb(255, 145, 0);
   background: transparent;
 }
 
 .signin .title {
   font-size: 24px;
-  color: #fff;
+  color: rgb(255, 145, 0);
   font-weight: 400;
   margin-bottom: 36px;
 }
@@ -918,11 +908,12 @@ html {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background: #fff;
+  background: rgb(255, 145, 0);
 }
 
 .signin .card-3 {
   background: #231e39;
+  /* background: #c0c0c0; */
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -934,7 +925,7 @@ html {
 }
 
 .signin .card-3 .card-heading {
-  background: url("../images/banner.jpg") top left/cover no-repeat;
+  background: url(../images/banner-promo.jpg) top left/cover no-repeat;
   display: table-cell;
   width: 50%;
 }
@@ -974,14 +965,10 @@ html {
 /* ========================================= PROFILE ======================================== */
 
 .bg-gra-02 {
-  background: -webkit-linear-gradient(
-    bottom,
-    #f4f4f4 0%,
-    rgb(255, 145, 0) 100%
-  );
-  background: -moz-linear-gradient(bottom, #f4f4f4 0%, rgb(255, 145, 0) 100%);
-  background: -o-linear-gradient(bottom, #f4f4f4 0%, rgb(255, 145, 0) 100%);
-  background: linear-gradient(to top, #f4f4f4 0%, rgb(255, 145, 0) 100%);
+  background-image: url(../images/back-profile.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1123,3 +1110,31 @@ html {
   max-width: 750px !important;
 }
 /* ========================================= /CHECKOUT ======================================== */
+/* ========================================= PROMO ======================================== */
+
+.promo-banner{
+  object-fit: cover;
+  width: 90%;
+  height: 100%;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.promo-banner:hover,
+.promo-banner:focus,
+.promo-banner:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.05);
+}
+.div-promo-banner{
+  /* max-width: 600px; */
+  max-height: 200px;
+}
+/* ========================================= /PROMO ======================================== */
+.request-name{
+  color: rgb(255, 145, 0) !important;
+}

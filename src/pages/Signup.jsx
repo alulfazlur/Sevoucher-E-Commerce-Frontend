@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import { changeInputUser, doSignUpBuyer } from "../store/actions/userAction";
 
@@ -10,10 +11,15 @@ class SignUp extends Component {
   };
 
   render() {
-    const message = this.props.location.state
-      ? this.props.location.state.message
-      : "";
-
+    if (localStorage.getItem("login_status")) {
+      return (
+        <Redirect
+          to={{
+            pathname: "/profile",
+          }}
+        />
+      );
+    } else {
     return (
       <React.Fragment>
         <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins signin">
@@ -93,7 +99,7 @@ class SignUp extends Component {
                     >
                       Sign Up
                     </button>
-                    <p style={{ color: "red", marginTop: "10px" }}>{message}</p>
+                    <p style={{color:"white", marginTop : "20px"}}>Already have an account? <a href="/signin" style={ { color: "rgb(255, 145, 0)" }}>Sign In</a></p>
                   </div>
                 </form>
               </div>
@@ -104,7 +110,7 @@ class SignUp extends Component {
     );
   }
 }
-
+}
 const mapStateToProps = (state) => {
   return {
     userName: state.user.userName,

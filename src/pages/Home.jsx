@@ -6,21 +6,37 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { doLogOut, getBio } from "../store/actions/userAction";
-import { changeInputGame } from "../store/actions/gameAction";
+import { changeInputGame, getGameList } from "../store/actions/gameAction";
 
 class Home extends Component {
   componentDidMount = async () => {
     await this.props.getBio();
+    await this.props.getGameList();
   };
 
-  changeRouter = (namaProduk) => {
-    localStorage.setItem("namaGame", namaProduk);
-    namaProduk = namaProduk.replace(/ /gi, "-");
-    this.props.history.replace("/game/" + namaProduk);
-    console.warn("cek route", this.props);
+  changeRouter = (namaGame) => {
+    localStorage.setItem("namaGame", namaGame);
+    namaGame = namaGame.replace(/ /gi, "-");
+    this.props.history.replace("/game/" + namaGame);
   };
 
   render() {
+
+    let gameList = this.props.game;
+
+      const sorted = (a, b) => {
+          const gameA = a.sold;
+          const gameB = b.sold;
+          let comparison = 0;
+          if (gameA > gameB) {
+            comparison = 1;
+          } else if (gameA < gameB) {
+            comparison = -1;
+          }
+          return comparison;
+      };
+      gameList = gameList.sort(sorted).slice(0,5);
+
     return (
       <React.Fragment>
         <Header {...this.props} />
@@ -100,57 +116,21 @@ class Home extends Component {
             </div>
           </div>
           <div className="container mb-5">
-            <div className="row games-tile">
-              <div className="col">
-                <Link to="/">
-                  <img
-                    className="tile"
-                    src={require("../images/tile/mlbb_tile.jpg")}
-                    alt="game_tile"
-                  />
-                </Link>
-              </div>
-              <div className="col">
-                <Link to="/">
-                  <img
-                    className="tile"
-                    src={require("../images/tile/freefire_tile.jpg")}
-                    alt="game_tile"
-                  />
-                </Link>
-              </div>
-
-              <div className="col">
-                <Link to="/">
-                  <img
-                    className="tile"
-                    src={require("../images/tile/PUBG_tile.jpg")}
-                    alt="game_tile"
-                  />
-                </Link>
-              </div>
-              <div className="col">
-                <Link to="/">
-                  <img
-                    className="tile"
-                    src={require("../images/tile/codmobile_tile.jpg")}
-                    alt="game_tile"
-                  />
-                </Link>
-              </div>
-            </div>
+            
             <div className="row">
-              <div className="col">
-                <Link to="/">
+            {gameList.map((el, index) => (
+              <div className="col" key={index}>
+                <Link onClick={() => this.changeRouter(el.name)} >
                   <img
                     className="tile"
-                    src={require("../images/tile/Blizzard_tile.jpg")}
+                    src={el.tile}
                     alt="game_tile"
                   />
                 </Link>
               </div>
+              ))}
 
-              <div className="col">
+              {/* <div className="col">
                 <Link to="/">
                   <img
                     className="tile"
@@ -176,7 +156,7 @@ class Home extends Component {
                     alt="game_tile"
                   />
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -187,7 +167,7 @@ class Home extends Component {
             </h1>
             <h1 className="lead font-weight-bold py-3"> Here it is!</h1>
             <Link
-              to="/games"
+              to="/discount"
               type="button"
               className="btn btn-warning home-btn"
             >
@@ -234,11 +214,13 @@ class Home extends Component {
 const mapStateToProps = (state) => {
   return {
     dataUser: state.user,
+    game: state.game.gameList,
   };
 };
 const mapDispatchToProps = {
   changeInput: changeInputGame,
   doLogOut,
   getBio,
+  getGameList
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

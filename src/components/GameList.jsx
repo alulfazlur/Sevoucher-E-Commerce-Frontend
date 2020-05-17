@@ -6,7 +6,6 @@ const GameList = (props) => {
     localStorage.setItem("namaGame", namaGame);
     namaGame = namaGame.replace(/ /gi, "-");
     props.history.replace("/game/" + namaGame);
-    console.warn("cek route", props);
   };
 
   return (

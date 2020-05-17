@@ -9,11 +9,16 @@ const ProfileHeader = (props) => {
         id="navbarSupportedContent"
       >
         <ul className="navbar-nav">
-          <li className="nav-item active">
-            <Link className="nav-link" to="/cart">
-              <i className="fas fa-shopping-cart"></i>
-            </Link>
-          </li>
+          {localStorage.getItem("status") === "buyer" ? (
+            <li className="nav-item active">
+              <Link className="nav-link" to="/cart">
+                <i className="fas fa-shopping-cart"></i>
+              </Link>
+            </li>
+          ) : (
+            false
+          )}
+
           <li className="nav-item dropdown">
             <Link
               to="/"
@@ -27,8 +32,8 @@ const ProfileHeader = (props) => {
               <img
                 className="avatar"
                 alt="avatar"
-                src={require("../images/ava.jpeg")}
-                // src={props.avatar}
+                // src={require("../images/ava.jpeg")}
+                src={props.dataUser.avatar}
               />
             </Link>
             <div
@@ -37,8 +42,7 @@ const ProfileHeader = (props) => {
             >
               <p>
                 <Link to="/profile" className="dropdown-item signin">
-                  {/* {props.dataUser.name} */}
-                  Profile
+                  {props.dataUser.name}
                 </Link>
               </p>
               <hr />

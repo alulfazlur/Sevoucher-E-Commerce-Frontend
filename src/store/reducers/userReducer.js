@@ -12,7 +12,7 @@ export default function userReducer(userState = initialState, action) {
         ...userState,
         name: action.payload.name,
         email: action.payload.email,
-        // avatar: action.payload.avatar,
+        avatar: action.payload.avatar,
         address: action.payload.address,
         phone: action.payload.phone,
         status: action.payload.status,
@@ -26,6 +26,10 @@ export default function userReducer(userState = initialState, action) {
         ...userState,
       };
     case "SUCCESS_SIGNUP":
+      return {
+        ...userState,
+      };
+    case "SUCCESS_DELETE_USER":
       return {
         ...userState,
       };

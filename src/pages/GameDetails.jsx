@@ -11,7 +11,7 @@ import {
   getVouchersGame,
   changeInputVoucher,
 } from "../store/actions/voucherAction";
-
+import { addToCart } from "../store/actions/paymentAction"
 class GameDetails extends Component {
   componentDidMount = async () => {
     await this.props.getBio();
@@ -64,6 +64,8 @@ class GameDetails extends Component {
                       type="text"
                       className="form-control input-id-1"
                       placeholder="ID"
+                      name="ign"
+                      onChange={(e) => this.props.changeInputVoucher(e)}
                     />
                   </div>
                 </form>
@@ -101,7 +103,7 @@ class GameDetails extends Component {
                 </div>
               </div>
               <div className="add-to-cart justify-content-center">
-                <Link type="button" className="btn btn-warning">
+                <Link onClick={()=> this.props.addToCart()} type="button" className="btn btn-warning">
                   <i className="fas fa-shopping-cart add-to-cart-logo mr-1"></i>
                   Add to cart
                 </Link>
@@ -127,5 +129,6 @@ const mapDispatchToProps = {
   getGameList,
   getVouchersGame,
   changeInputVoucher,
+  addToCart
 };
 export default connect(mapStateToProps, mapDispatchToProps)(GameDetails);

@@ -2,8 +2,8 @@ import axios from "axios";
 
 export const getBio = () => {
   let endPoint;
-  let tokenUser = localStorage.getItem("token");
-  let status = localStorage.getItem("status");
+  const tokenUser = localStorage.getItem("token");
+  const status = localStorage.getItem("status");
 
   status === "seller"
     ? (endPoint = "http://0.0.0.0:9000/admin/me")
@@ -24,6 +24,57 @@ export const getBio = () => {
       });
   };
 };
+
+export const editBio = () => {
+  const tokenUser = localStorage.getItem("token");
+  const endPoint = "http://0.0.0.0:9000/user/me";
+  return async (dispatch, getState) => {
+    const bodyRequest = {
+      name: getState().user.fullName,
+      email: getState().user.email,
+      // avatar: getState().user.avatar,
+      address: getState().user.address,
+      phone: getState().user.phone,
+    };
+    await axios({
+      method: "PUT",
+      url: endPoint,
+      headers: { Authorization: `Bearer ${tokenUser}` },
+      body: JSON.stringify(bodyRequest),
+    })
+      .then(async (response) => {
+        localStorage.setItem("status", response.data.status);
+
+        dispatch({ type: "SUCCESS_GET_BIO", payload: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
+export const doDeleteUser = () => {
+  const tokenUser = localStorage.getItem("token");
+  const endPoint = "http://0.0.0.0:9000/user/delete";
+  return async (dispatch, getState) => {
+    const bodyRequest = {
+      username: getState().user.username,
+    };
+    await axios({
+      method: "DELETE",
+      url: endPoint,
+      headers: { Authorization: `Bearer ${tokenUser}` },
+      body: JSON.stringify(bodyRequest),
+    })
+      .then(async (response) => {
+        dispatch({ type: "SUCCESS_DELETE_USER" });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
 export const doLogIn = (props) => {
   return async (dispatch, getState) => {
     await axios({
@@ -90,6 +141,35 @@ export const doSignUpBuyer = (props) => {
       });
   };
 };
+
+export const doEditBioBuyer = (props) => {
+  const tokenUser = localStorage.getItem("token");
+  return async (dispatch, getState) => {
+    const bodyRequest = {
+      name: getState().user.name,
+      email: getState().user.email,
+      avatar: getState().user.avatar,
+      address: getState().user.address,
+      phone: getState().user.phone,
+    };
+    await axios
+      .put("http://0.0.0.0:9000/user/me", bodyRequest, {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Accept: "application/json; charset=utf-8",
+          Authorization: `Bearer ${tokenUser}`,
+        },
+      })
+      .then(async() => {
+        await dispatch({ type: "SUCCESS_SIGNUP" });
+        alert("Your biodata edited!");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
 export const changeInputUser = (e) => {
   return {
     type: "CHANGE_INPUT_USER",

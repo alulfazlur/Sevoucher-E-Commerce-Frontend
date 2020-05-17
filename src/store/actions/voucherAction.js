@@ -1,5 +1,7 @@
 import axios from "axios";
 
+// ==============================================CRUD==================================================
+
 export const doRegisterVoucher = (props) => {
   return async (dispatch, getState) => {
     const bodyRequest = {
@@ -28,6 +30,35 @@ export const doRegisterVoucher = (props) => {
   };
 };
 
+export const doEditVoucher = (props) => {
+  return async (dispatch, getState) => {
+    const bodyRequest = {
+      gameName: getState().voucher.gameVoucherName,
+      voucher: getState().voucher.voucherName,
+      newVoucher: getState().voucher.newVoucherName,
+      price: getState().voucher.voucherPrice,
+    };
+    const myJSON = JSON.stringify(bodyRequest);
+    console.warn("myJSON Body Req", myJSON)
+    const token = localStorage.getItem("token");
+    await axios
+      .put("http://0.0.0.0:9000/admin/game/voucher", myJSON, {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Accept: "application/json; charset=utf-8",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(async (response) => {
+        alert(`Voucher ${getState().voucher.voucherName} in ${getState().voucher.gameVoucherName} is edited`)
+        dispatch({ type: "SUCCESS_REGISTER_VOUCHER" });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
 export const deleteVoucher = (props) => {
   return async (dispatch, getState) => {
     const token = localStorage.getItem("token");
@@ -46,6 +77,8 @@ export const deleteVoucher = (props) => {
       });
   };
 };
+
+// ==============================================/CRUD==================================================
 
 export const getVouchersGame = (props) => {
   return async (dispatch, getState) => {

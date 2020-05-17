@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Header from "../components/HeaderOrange";
 import Footer from "../components/Footer";
 import GameList from "../components/GameList";
 import Search from "../components/Search";
 import { doLogOut, getBio } from "../store/actions/userAction";
-import { getGameList, changeInputGame, checkedFilter } from "../store/actions/gameAction";
+import {
+  getGameList,
+  changeInputGame,
+  checkedFilter,
+} from "../store/actions/gameAction";
 
 class Games extends Component {
   componentDidMount = async () => {
@@ -25,7 +30,8 @@ class Games extends Component {
     if (this.props.search && this.props.search.length > 2) {
       gameList = gameList.filter((item) => {
         if (
-          item.name.toLowerCase().includes(...this.props.search.toLowerCase())
+          item.name.toLowerCase().match(this.props.search.toLowerCase()) ||
+          item.publisher.toLowerCase().match(this.props.search.toLowerCase())
         ) {
           return item;
         }
@@ -66,11 +72,8 @@ class Games extends Component {
           return comparison;
         }
       };
-      gameList.sort(sorted);
+      gameList = gameList.sort(sorted);
     }
-
-    console.warn("gameList", gameList);
-
     return (
       <React.Fragment>
         <Header {...this.props} />
@@ -189,6 +192,11 @@ class Games extends Component {
             ))}
           </div>
         </div>
+        <div className="row col justify-content-center">
+          <Link to="/discount" type="button" className="btn btn-warning">
+            Discount Games
+          </Link>
+        </div>
 
         <Footer />
       </React.Fragment>
@@ -210,6 +218,6 @@ const mapDispatchToProps = {
   doLogOut,
   getBio,
   getGameList,
-  checkedFilter
+  checkedFilter,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Games);

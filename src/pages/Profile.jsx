@@ -10,9 +10,15 @@ class Profile extends Component {
   };
 
   goHome = () => {
-    this.props.history.push("/home");
+    this.props.history.push("/");
   };
 
+  goBio = () => {
+    this.props.history.push("/bio");
+  };
+  goHistory = () => {
+    this.props.history.push("/cart/history");
+  };
   logOut = async () => {
     await this.props.doLogOut();
     this.props.history.push("/signin");
@@ -24,26 +30,44 @@ class Profile extends Component {
         <Redirect
           to={{
             pathname: "/signin",
-            state: { message: "Anda harus login terlebih dahulu!" },
+            state: { message: "You must sign in first!" },
           }}
         />
       );
-    } else {
+    } 
+    if (localStorage.getItem("status") !== "buyer") {
+      return (
+        <Redirect
+          to={{
+            pathname: "/admin",
+          }}
+        />
+      );
+    } 
+    else {
       return (
         <React.Fragment>
           <div className="page-wrapper bg-gra-02 profile font-poppins">
             <div className="card-container">
               <span className="pro">PRO</span>
+              
+              {/* <img src={require("../images/ava.jpeg")} alt="user" /> */}
               <img src={this.props.dataUser.avatar} alt="user" />
               <h3>{this.props.dataUser.name}</h3>
               <h6>{this.props.dataUser.address}</h6>
               <p>{this.props.dataUser.email}</p>
               <div className="buttons mb-5">
-                <button className="primary" onClick={this.goHome}>
+                <button className="primary ghost col" onClick={this.goHome}>
                   Home
                 </button>
-                <button className="primary ghost" onClick={this.logOut}>
+                 <button className="primary ghost col" onClick={this.goBio}>
+                  Edit Bio
+                </button>
+                <button className="primary ghost col" onClick={this.logOut}>
                   Logout
+                </button>
+                <button className="primary ghost col" onClick={this.goHistory}>
+                  Cart History
                 </button>
               </div>
             </div>
