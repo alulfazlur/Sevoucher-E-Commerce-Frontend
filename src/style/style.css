@@ -364,6 +364,13 @@ html {
     justify-content: center !important;
   }
 }
+@media (max-width: 575px) {
+  .tile {
+    display: flex;
+    margin-left: 80px !important;
+    justify-content: center !important;
+  }
+}
 /* =================================== /DISCOUNTS =================================== */
 
 /* =================================== FOOTER =================================== */

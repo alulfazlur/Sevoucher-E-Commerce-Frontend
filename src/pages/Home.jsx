@@ -35,7 +35,7 @@ class Home extends Component {
           }
           return comparison;
       };
-      gameList = gameList.sort(sorted).slice(0,5);
+      gameList = gameList.sort(sorted);
 
     return (
       <React.Fragment>
@@ -119,7 +119,7 @@ class Home extends Component {
             
             <div className="row">
             {gameList.map((el, index) => (
-              <div className="col" key={index}>
+              <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6" key={index}>
                 <Link onClick={() => this.changeRouter(el.name)} >
                   <img
                     className="tile"
