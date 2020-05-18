@@ -20,7 +20,7 @@ const Footer = (props) => {
             <div className="navbar-list">
               <ul className="list-unstyled">
                 <li className="facebook">
-                  <a href="https://facebook.com">
+                  <a href="http://facebook.com">
                     <img
                       src={require("../images/icon/ic_fb.png")}
                       widht="20.17px"
@@ -30,7 +30,7 @@ const Footer = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://twitter.com">
+                  <a href="http://twitter.com">
                     <img
                       src={require("../images/icon/ic_twitter.png")}
                       widht="20.17px"
@@ -40,7 +40,7 @@ const Footer = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://instagram.com">
+                  <a href="http://instagram.com">
                     <img
                       src={require("../images/icon/ic_ig.png")}
                       widht="20.17px"
@@ -50,7 +50,7 @@ const Footer = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://linkedin.com">
+                  <a href="http://linkedin.com">
                     <img
                       src={require("../images/icon/ic_linkedin.png")}
                       widht="20.17px"
