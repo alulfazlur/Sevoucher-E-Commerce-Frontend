@@ -1,4 +1,5 @@
 import axios from "axios";
+const baseUrl = process.env.REACT_APP_PUBLIC_URL
 
 // ==============================================CRUD==================================================
 
@@ -13,7 +14,7 @@ export const doRegisterVoucher = (props) => {
     console.warn("myJSON Body Req", myJSON)
     const token = localStorage.getItem("token");
     await axios
-      .post("http://0.0.0.0:9000/admin/game/voucher", myJSON, {
+      .post(baseUrl + "/admin/game/voucher", myJSON, {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           Accept: "application/json; charset=utf-8",
@@ -42,7 +43,7 @@ export const doEditVoucher = (props) => {
     console.warn("myJSON Body Req", myJSON)
     const token = localStorage.getItem("token");
     await axios
-      .put("http://0.0.0.0:9000/admin/game/voucher", myJSON, {
+      .put(baseUrl + "/admin/game/voucher", myJSON, {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           Accept: "application/json; charset=utf-8",
@@ -63,7 +64,7 @@ export const deleteVoucher = (props) => {
   return async (dispatch, getState) => {
     const token = localStorage.getItem("token");
     await axios
-      .delete("http://0.0.0.0:9000/admin/game/voucher", {
+      .delete(baseUrl + "/admin/game/voucher", {
         headers: {Authorization: `Bearer ${token}`},
         params: {name : getState().game.gameNameDel,
         vocuher: getState().game.voucherNameDel }}, {
@@ -83,7 +84,7 @@ export const deleteVoucher = (props) => {
 export const getVouchersGame = (props) => {
   return async (dispatch, getState) => {
     await axios
-      .get("http://0.0.0.0:9000/public/game/voucher", {
+      .get(baseUrl + "/public/game/voucher", {
         params: {gameName : localStorage.getItem(("namaGame"))}
       })
       .then(async(response) => {

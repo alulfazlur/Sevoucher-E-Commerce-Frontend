@@ -1,4 +1,5 @@
 import axios from "axios";
+const baseUrl = process.env.REACT_APP_PUBLIC_URL
 
 export const changeInputPayment = (e) => {
   return {
@@ -28,7 +29,7 @@ export const addToCart = (props) => {
     const myJSON = JSON.stringify(bodyRequest);
     const token = localStorage.getItem("token");
     await axios
-      .post("http://0.0.0.0:9000/cart", myJSON, {
+      .post( baseUrl + "/cart", myJSON, {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           Accept: "application/json; charset=utf-8",
@@ -54,7 +55,7 @@ export const getCartDetail = (props) => {
   return async (dispatch, getState) => {
     const token = localStorage.getItem("token");
     await axios
-      .get("http://0.0.0.0:9000/cart/detail", {
+      .get(baseUrl + "/cart/detail", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -72,7 +73,7 @@ export const getCartResume = (props) => {
   return async (dispatch, getState) => {
     const token = localStorage.getItem("token");
     await axios
-      .get("http://0.0.0.0:9000/cart/resume", {
+      .get(baseUrl + "/cart/resume", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

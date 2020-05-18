@@ -1,4 +1,5 @@
 import axios from "axios";
+const baseUrl = process.env.REACT_APP_PUBLIC_URL
 
 export const getBio = () => {
   let endPoint;
@@ -6,12 +7,12 @@ export const getBio = () => {
   const status = localStorage.getItem("status");
 
   status === "seller"
-    ? (endPoint = "http://0.0.0.0:9000/admin/me")
-    : (endPoint = "http://0.0.0.0:9000/user/me");
+    ? (endPoint = "/admin/me")
+    : (endPoint = "/user/me");
   return async (dispatch) => {
     await axios({
       method: "GET",
-      url: endPoint,
+      url: baseUrl + endPoint,
       headers: { Authorization: `Bearer ${tokenUser}` },
     })
       .then(async (response) => {
@@ -27,7 +28,7 @@ export const getBio = () => {
 
 export const editBio = () => {
   const tokenUser = localStorage.getItem("token");
-  const endPoint = "http://0.0.0.0:9000/user/me";
+  const endPoint = baseUrl + "/user/me";
   return async (dispatch, getState) => {
     const bodyRequest = {
       name: getState().user.fullName,
@@ -55,7 +56,7 @@ export const editBio = () => {
 
 export const doDeleteUser = () => {
   const tokenUser = localStorage.getItem("token");
-  const endPoint = "http://0.0.0.0:9000/user/delete";
+  const endPoint = baseUrl + "/user/delete";
   return async (dispatch, getState) => {
     const bodyRequest = {
       username: getState().user.username,
@@ -79,7 +80,7 @@ export const doLogIn = (props) => {
   return async (dispatch, getState) => {
     await axios({
       method: "GET",
-      url: "http://0.0.0.0:9000/login",
+      url: baseUrl + "/login",
       params: {
         username: getState().user.userName,
         password: getState().user.passWord,
@@ -111,7 +112,7 @@ export const doSignUpSeller = (props) => {
       phone: getState().user.phone,
     };
     axios
-      .post("http://0.0.0.0:9000/admin", bodyRequest)
+      .post(baseUrl + "/admin", bodyRequest)
       .then(() => {
         dispatch({ type: "SUCCESS_SIGNUP" });
       })
@@ -132,7 +133,7 @@ export const doSignUpBuyer = (props) => {
       phone: getState().user.phone,
     };
     axios
-      .post("http://0.0.0.0:9000/user", bodyRequest)
+      .post(baseUrl + "/user", bodyRequest)
       .then(() => {
         dispatch({ type: "SUCCESS_SIGNUP" });
       })
@@ -153,7 +154,7 @@ export const doEditBioBuyer = (props) => {
       phone: getState().user.phone,
     };
     await axios
-      .put("http://0.0.0.0:9000/user/me", bodyRequest, {
+      .put(baseUrl + "/user/me", bodyRequest, {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           Accept: "application/json; charset=utf-8",

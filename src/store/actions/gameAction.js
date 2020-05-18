@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = process.env.REACT_APP_BASE_URL
+const baseUrl = process.env.REACT_APP_PUBLIC_URL
 // ==============================================CRUD==================================================
 export const doRegisterGame = (props) => {
   return async (dispatch, getState) => {
@@ -21,7 +21,7 @@ export const doRegisterGame = (props) => {
     console.warn("myJSON Body Req", myJSON);
     const token = localStorage.getItem("token");
     await axios
-      .post("http://0.0.0.0:9000/admin/game", myJSON, {
+      .post(baseUrl + "/admin/game", myJSON, {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           Accept: "application/json; charset=utf-8",
@@ -58,7 +58,7 @@ export const doEditGame = (props) => {
     const myJSON = JSON.stringify(bodyRequest);
     const token = localStorage.getItem("token");
     await axios
-      .put("http://0.0.0.0:9000/admin/game", myJSON, {
+      .put(baseUrl + "/admin/game", myJSON, {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           Accept: "application/json; charset=utf-8",
@@ -80,7 +80,7 @@ export const deleteGame = (props) => {
     const token = localStorage.getItem("token");
     await axios
       .delete(
-        "http://0.0.0.0:9000/admin/game",
+        baseUrl + "/admin/game",
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { name: getState().game.gameNameDel },
@@ -102,7 +102,7 @@ export const deleteGame = (props) => {
 export const getGameList = (props) => {
   return async (dispatch) => {
     await axios
-      .get("http://0.0.0.0:9000/public/game")
+      .get(baseUrl + "/public/game")
       .then(async (response) => {
         dispatch({ type: "SUCCESS_GET_GAME_LIST", payload: response.data });
       })
