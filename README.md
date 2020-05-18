@@ -1,5 +1,5 @@
 ## Deploy Links
-### htpps://sevoucher.netlify.app
+### https://sevoucher.netlify.app
 
 
 =================================================================================================
