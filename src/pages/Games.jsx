@@ -64,9 +64,9 @@ class Games extends Component {
           const gameA = a.sold;
           const gameB = b.sold;
           let comparison = 0;
-          if (gameA > gameB) {
+          if (gameA < gameB) {
             comparison = 1;
-          } else if (gameA < gameB) {
+          } else if (gameA > gameB) {
             comparison = -1;
           }
           return comparison;
@@ -98,7 +98,7 @@ class Games extends Component {
                     type="radio"
                     name="category"
                     id="option1"
-                    autocomplete="off"
+                    autoComplete="off"
                     value=""
                     onClick={(e) => this.changeRouterFilter(e)}
                   />
@@ -109,7 +109,7 @@ class Games extends Component {
                     type="radio"
                     name="category"
                     id="option2"
-                    autocomplete="off"
+                    autoComplete="off"
                     value="mobile"
                     onClick={(e) => this.changeRouterFilter(e)}
                   />
@@ -120,7 +120,7 @@ class Games extends Component {
                     type="radio"
                     name="category"
                     id="option3"
-                    autocomplete="off"
+                    autoComplete="off"
                     value="pc"
                     onClick={(e) => this.changeRouterFilter(e)}
                   />
@@ -131,7 +131,7 @@ class Games extends Component {
                     type="radio"
                     name="category"
                     id="option3"
-                    autocomplete="off"
+                    autoComplete="off"
                     value="credits"
                     onClick={(e) => this.changeRouterFilter(e)}
                   />
@@ -147,7 +147,7 @@ class Games extends Component {
                     type="radio"
                     name="sortby"
                     id="option1"
-                    autocomplete="off"
+                    autoComplete="off"
                     value="sort"
                     onClick={(e) => this.props.changeInputGame(e)}
                   />
@@ -158,7 +158,7 @@ class Games extends Component {
                     type="radio"
                     name="sortby"
                     id="option2"
-                    autocomplete="off"
+                    autoComplete="off"
                     value="popular"
                     onClick={(e) => this.props.changeInputGame(e)}
                   />

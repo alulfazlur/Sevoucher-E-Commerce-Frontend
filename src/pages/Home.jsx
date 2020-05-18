@@ -28,9 +28,9 @@ class Home extends Component {
           const gameA = a.sold;
           const gameB = b.sold;
           let comparison = 0;
-          if (gameA > gameB) {
+          if (gameA < gameB) {
             comparison = 1;
-          } else if (gameA < gameB) {
+          } else if (gameA > gameB) {
             comparison = -1;
           }
           return comparison;

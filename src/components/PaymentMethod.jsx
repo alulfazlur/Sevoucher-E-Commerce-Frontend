@@ -115,7 +115,7 @@ const PaymentMethod = (props) => {
                           aria-expanded="false"
                           aria-controls="collapse2"
                         >
-                         <i class="fas fa-phone mr-2"></i>
+                         <i className="fas fa-phone mr-2"></i>
                           Pulsa
                           <i className="fas fa-caret-down ml-2" />
                         </a>

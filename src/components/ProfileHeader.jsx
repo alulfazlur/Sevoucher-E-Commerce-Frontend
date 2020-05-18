@@ -9,15 +9,11 @@ const ProfileHeader = (props) => {
         id="navbarSupportedContent"
       >
         <ul className="navbar-nav">
-          {localStorage.getItem("status") === "buyer" ? (
-            <li className="nav-item active">
-              <Link className="nav-link" to="/cart">
-                <i className="fas fa-shopping-cart"></i>
-              </Link>
-            </li>
-          ) : (
-            false
-          )}
+          <li className="nav-item active">
+            <Link className="nav-link" to="/cart">
+              <i className="fas fa-shopping-cart"></i>
+            </Link>
+          </li>
 
           <li className="nav-item dropdown">
             <Link
@@ -29,12 +25,22 @@ const ProfileHeader = (props) => {
               aria-haspopup="true"
               aria-expanded="false"
             >
+              {localStorage.getItem("status") === "buyer" ? (
+
               <img
                 className="avatar"
                 alt="avatar"
                 // src={require("../images/ava.jpeg")}
                 src={props.dataUser.avatar}
               />
+              ) : (
+                <img
+                className="avatar"
+                alt="avatar"
+                src={require("../images/ava.jpeg")}
+                // src={props.dataUser.avatar}
+              />
+              )}
             </Link>
             <div
               className="dropdown-menu mr-lg-auto nav-avatar-drop"
@@ -55,6 +61,16 @@ const ProfileHeader = (props) => {
                   Logout
                 </Link>
               </p>
+              {localStorage.getItem("status") === "seller" ? (
+                <p><Link
+                  to="/admin"
+                  className="dropdown-item"
+                  >Dashboard
+                </Link>
+                </p>
+              ) : (
+                false
+              )}
             </div>
           </li>
         </ul>

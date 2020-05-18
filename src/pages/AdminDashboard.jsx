@@ -103,11 +103,11 @@ class AdminDashboard extends Component {
                       <form onSubmit={(e) => e.preventDefault()}>
                         <div className="row">
                           <div className="col-lg-6">
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gameName">Game Name</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="gameName"
                                 name="gameName"
                                 aria-describedby="emailHelp"
@@ -115,43 +115,43 @@ class AdminDashboard extends Component {
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="tileUrl">Tile</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="tileUrl"
                                 name="tile"
                                 placeholder="input the url"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="bannerUrl">Banner</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="banner"
                                 id="bannerUrl"
                                 placeholder="input the url"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gamePublisher">Publisher</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="publisher"
                                 id="gamePublisher"
                                 placeholder="input the publisher"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gameDescription">Description</label>
                               <textarea
-                                class="form-control"
+                                className="form-control"
                                 id="gameDescription"
                                 name="description"
                                 placeholder="input the description"
@@ -162,59 +162,59 @@ class AdminDashboard extends Component {
                             </div>
                           </div>
                           <div className="col-lg-6">
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gplayUrl">Google Play Website</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="gplay"
                                 id="gplayUrl"
                                 placeholder="input the url"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="appstoreUrl">App Store Website</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="appstore"
                                 id="appstoreUrl"
                                 placeholder="input the url"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="bannerUrl">Website</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="website"
                                 id="bannerUrl"
                                 placeholder="input the url"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="communityUrl">Community</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="community"
                                 id="communityUrl"
                                 placeholder="input the publisher"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <fieldset class="form-group">
-                              <div class="row">
-                                <legend class="col-form-label col-sm-2 pt-0">
+                            <fieldset className="form-group">
+                              <div className="row">
+                                <legend className="col-form-label col-sm-2 pt-0">
                                   Category
                                 </legend>
-                                <div class="col-sm-10">
-                                  <div class="form-check">
+                                <div className="col-sm-10">
+                                  <div className="form-check">
                                     <input
-                                      class="form-check-input"
+                                      className="form-check-input"
                                       type="radio"
                                       name="category"
                                       id="gridRadios1"
@@ -224,15 +224,15 @@ class AdminDashboard extends Component {
                                       }
                                     />
                                     <label
-                                      class="form-check-label"
+                                      className="form-check-label"
                                       for="gridRadios1"
                                     >
                                       Mobile
                                     </label>
                                   </div>
-                                  <div class="form-check">
+                                  <div className="form-check">
                                     <input
-                                      class="form-check-input"
+                                      className="form-check-input"
                                       type="radio"
                                       name="category"
                                       id="gridRadios2"
@@ -242,15 +242,15 @@ class AdminDashboard extends Component {
                                       }
                                     />
                                     <label
-                                      class="form-check-label"
+                                      className="form-check-label"
                                       for="gridRadios2"
                                     >
                                       PC
                                     </label>
                                   </div>
-                                  <div class="form-check disabled">
+                                  <div className="form-check disabled">
                                     <input
-                                      class="form-check-input"
+                                      className="form-check-input"
                                       type="radio"
                                       name="category"
                                       id="gridRadios3"
@@ -260,7 +260,7 @@ class AdminDashboard extends Component {
                                       }
                                     />
                                     <label
-                                      class="form-check-label"
+                                      className="form-check-label"
                                       for="gridRadios3"
                                     >
                                       Credits
@@ -269,15 +269,15 @@ class AdminDashboard extends Component {
                                 </div>
                               </div>
                             </fieldset>
-                            <fieldset class="form-group">
-                              <div class="row">
-                                <legend class="col-form-label col-sm-2 pt-0">
+                            <fieldset className="form-group">
+                              <div className="row">
+                                <legend className="col-form-label col-sm-2 pt-0">
                                   Promo
                                 </legend>
-                                <div class="col-sm-10">
-                                  <div class="form-check">
+                                <div className="col-sm-10">
+                                  <div className="form-check">
                                     <input
-                                      class="form-check-input"
+                                      className="form-check-input"
                                       type="radio"
                                       name="promo"
                                       id="gridRadios1"
@@ -287,15 +287,15 @@ class AdminDashboard extends Component {
                                       }
                                     />
                                     <label
-                                      class="form-check-label"
+                                      className="form-check-label"
                                       for="gridRadios1"
                                     >
                                       True
                                     </label>
                                   </div>
-                                  <div class="form-check">
+                                  <div className="form-check">
                                     <input
-                                      class="form-check-input"
+                                      className="form-check-input"
                                       type="radio"
                                       name="promo"
                                       id="gridRadios2"
@@ -305,7 +305,7 @@ class AdminDashboard extends Component {
                                       }
                                     />
                                     <label
-                                      class="form-check-label"
+                                      className="form-check-label"
                                       for="gridRadios2"
                                     >
                                       False
@@ -314,11 +314,11 @@ class AdminDashboard extends Component {
                                 </div>
                               </div>
                             </fieldset>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="discount">Discount</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="discount"
                                 id="discount"
                                 placeholder="input the discount"
@@ -329,7 +329,7 @@ class AdminDashboard extends Component {
                           <div className="row col justify-content-center">
                             <button
                               type="submit"
-                              class="btn btn-warning"
+                              className="btn btn-warning"
                               onClick={() => this.inputGame()}
                             >
                               Post
@@ -379,11 +379,11 @@ class AdminDashboard extends Component {
                       <form onSubmit={(e) => e.preventDefault()}>
                         <div className="row">
                           <div className="col-lg-6">
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gameName">Game Name</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="gameName"
                                 name="gameName"
                                 aria-describedby="emailHelp"
@@ -391,11 +391,11 @@ class AdminDashboard extends Component {
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="newGameName">New Game Name</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="newGameName"
                                 name="newGameName"
                                 aria-describedby="emailHelp"
@@ -403,43 +403,43 @@ class AdminDashboard extends Component {
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="tileUrl">Tile</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="tileUrl"
                                 name="tile"
                                 placeholder="input the url"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="bannerUrl">Banner</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="banner"
                                 id="bannerUrl"
                                 placeholder="input the url"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gamePublisher">Publisher</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="publisher"
                                 id="gamePublisher"
                                 placeholder="input the publisher"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gameDescription">Description</label>
                               <textarea
-                                class="form-control"
+                                className="form-control"
                                 id="gameDescription"
                                 name="description"
                                 placeholder="input the description"
@@ -450,59 +450,59 @@ class AdminDashboard extends Component {
                             </div>
                           </div>
                           <div className="col-lg-6">
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gplayUrl">Google Play Website</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="gplay"
                                 id="gplayUrl"
                                 placeholder="input the url"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="appstoreUrl">App Store Website</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="appstore"
                                 id="appstoreUrl"
                                 placeholder="input the url"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="bannerUrl">Website</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="website"
                                 id="bannerUrl"
                                 placeholder="input the url"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="communityUrl">Community</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="community"
                                 id="communityUrl"
                                 placeholder="input the publisher"
                                 onChange={(e) => this.props.changeInputGame(e)}
                               />
                             </div>
-                            <fieldset class="form-group">
-                              <div class="row">
-                                <legend class="col-form-label col-sm-2 pt-0">
+                            <fieldset className="form-group">
+                              <div className="row">
+                                <legend className="col-form-label col-sm-2 pt-0">
                                   Category
                                 </legend>
-                                <div class="col-sm-10">
-                                  <div class="form-check">
+                                <div className="col-sm-10">
+                                  <div className="form-check">
                                     <input
-                                      class="form-check-input"
+                                      className="form-check-input"
                                       type="radio"
                                       name="category"
                                       id="gridRadios1"
@@ -512,15 +512,15 @@ class AdminDashboard extends Component {
                                       }
                                     />
                                     <label
-                                      class="form-check-label"
+                                      className="form-check-label"
                                       for="gridRadios1"
                                     >
                                       Mobile
                                     </label>
                                   </div>
-                                  <div class="form-check">
+                                  <div className="form-check">
                                     <input
-                                      class="form-check-input"
+                                      className="form-check-input"
                                       type="radio"
                                       name="category"
                                       id="gridRadios2"
@@ -530,15 +530,15 @@ class AdminDashboard extends Component {
                                       }
                                     />
                                     <label
-                                      class="form-check-label"
+                                      className="form-check-label"
                                       for="gridRadios2"
                                     >
                                       PC
                                     </label>
                                   </div>
-                                  <div class="form-check disabled">
+                                  <div className="form-check disabled">
                                     <input
-                                      class="form-check-input"
+                                      className="form-check-input"
                                       type="radio"
                                       name="category"
                                       id="gridRadios3"
@@ -548,7 +548,7 @@ class AdminDashboard extends Component {
                                       }
                                     />
                                     <label
-                                      class="form-check-label"
+                                      className="form-check-label"
                                       for="gridRadios3"
                                     >
                                       Credits
@@ -557,15 +557,15 @@ class AdminDashboard extends Component {
                                 </div>
                               </div>
                             </fieldset>
-                            <fieldset class="form-group">
-                              <div class="row">
-                                <legend class="col-form-label col-sm-2 pt-0">
+                            <fieldset className="form-group">
+                              <div className="row">
+                                <legend className="col-form-label col-sm-2 pt-0">
                                   Promo
                                 </legend>
-                                <div class="col-sm-10">
-                                  <div class="form-check">
+                                <div className="col-sm-10">
+                                  <div className="form-check">
                                     <input
-                                      class="form-check-input"
+                                      className="form-check-input"
                                       type="radio"
                                       name="promo"
                                       id="gridRadios1"
@@ -575,15 +575,15 @@ class AdminDashboard extends Component {
                                       }
                                     />
                                     <label
-                                      class="form-check-label"
+                                      className="form-check-label"
                                       for="gridRadios1"
                                     >
                                       True
                                     </label>
                                   </div>
-                                  <div class="form-check">
+                                  <div className="form-check">
                                     <input
-                                      class="form-check-input"
+                                      className="form-check-input"
                                       type="radio"
                                       name="promo"
                                       id="gridRadios2"
@@ -593,7 +593,7 @@ class AdminDashboard extends Component {
                                       }
                                     />
                                     <label
-                                      class="form-check-label"
+                                      className="form-check-label"
                                       for="gridRadios2"
                                     >
                                       False
@@ -602,11 +602,11 @@ class AdminDashboard extends Component {
                                 </div>
                               </div>
                             </fieldset>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="discount">Discount</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 name="discount"
                                 id="discount"
                                 placeholder="input the discount"
@@ -617,7 +617,7 @@ class AdminDashboard extends Component {
                           <div className="row col justify-content-center">
                             <button
                               type="submit"
-                              class="btn btn-warning"
+                              className="btn btn-warning"
                               onClick={() => this.editGame()}
                             >
                               Put
@@ -667,11 +667,11 @@ class AdminDashboard extends Component {
                       <form onSubmit={(e) => e.preventDefault()}>
                         <div className="row">
                           <div className="col-lg">
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gameNameDel">Game Name</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="gameNameDel"
                                 name="gameNameDel"
                                 aria-describedby="emailHelp"
@@ -682,7 +682,7 @@ class AdminDashboard extends Component {
                             <div className="row col justify-content-center">
                               <button
                                 type="submit"
-                                class="btn btn-warning"
+                                className="btn btn-warning"
                                 onClick={() => this.delGame()}
                               >
                                 Delete
@@ -740,11 +740,11 @@ class AdminDashboard extends Component {
                       <form onSubmit={(e) => e.preventDefault()}>
                         <div className="row">
                           <div className="col-lg">
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gameVoucherName">Game Name</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="gameVoucherName"
                                 name="gameVoucherName"
                                 aria-describedby="emailHelp"
@@ -754,11 +754,11 @@ class AdminDashboard extends Component {
                                 }
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="voucherName">Voucher Name</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="voucherName"
                                 name="voucherName"
                                 aria-describedby="emailHelp"
@@ -768,11 +768,11 @@ class AdminDashboard extends Component {
                                 }
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="voucherPrice">Price</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="voucherPrice"
                                 name="voucherPrice"
                                 aria-describedby="emailHelp"
@@ -785,7 +785,7 @@ class AdminDashboard extends Component {
                             <div className="row col justify-content-center">
                               <button
                                 type="submit"
-                                class="btn btn-warning"
+                                className="btn btn-warning"
                                 onClick={() => this.inputVoucher()}
                               >
                                 Post
@@ -836,11 +836,11 @@ class AdminDashboard extends Component {
                       <form onSubmit={(e) => e.preventDefault()}>
                         <div className="row">
                           <div className="col-lg">
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gameVoucherName">Game Name</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="gameVoucherName"
                                 name="gameVoucherName"
                                 aria-describedby="emailHelp"
@@ -850,11 +850,11 @@ class AdminDashboard extends Component {
                                 }
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="voucherName">Voucher Name</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="voucherName"
                                 name="voucherName"
                                 aria-describedby="emailHelp"
@@ -864,13 +864,13 @@ class AdminDashboard extends Component {
                                 }
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="newVoucherName">
                                 New Voucher Name
                               </label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="newVoucherName"
                                 name="newVoucherName"
                                 aria-describedby="emailHelp"
@@ -880,11 +880,11 @@ class AdminDashboard extends Component {
                                 }
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="voucherPrice">Price</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="voucherPrice"
                                 name="voucherPrice"
                                 aria-describedby="emailHelp"
@@ -897,7 +897,7 @@ class AdminDashboard extends Component {
                             <div className="row col justify-content-center">
                               <button
                                 type="submit"
-                                class="btn btn-warning"
+                                className="btn btn-warning"
                                 onClick={() => this.editVoucher()}
                               >
                                 Put
@@ -948,11 +948,11 @@ class AdminDashboard extends Component {
                       <form onSubmit={(e) => e.preventDefault()}>
                         <div className="row">
                           <div className="col-lg">
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="gameNameDel">Game Name</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="gameNameDel"
                                 name="gameNameDel"
                                 aria-describedby="emailHelp"
@@ -962,11 +962,11 @@ class AdminDashboard extends Component {
                                 }
                               />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="voucherNameDel">Voucher Name</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="voucherNameDel"
                                 name="voucherNameDel"
                                 aria-describedby="emailHelp"
@@ -980,7 +980,7 @@ class AdminDashboard extends Component {
                             <div className="row col justify-content-center">
                               <button
                                 type="submit"
-                                class="btn btn-warning"
+                                className="btn btn-warning"
                                 onClick={() => this.delVoucher()}
                               >
                                 Delete
@@ -1035,11 +1035,11 @@ class AdminDashboard extends Component {
                       <form onSubmit={(e) => e.preventDefault()}>
                         <div className="row">
                           <div className="col-lg">
-                            <div class="form-group">
+                            <div className="form-group">
                               <label for="username">Username</label>
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 id="username"
                                 name="username"
                                 aria-describedby="emailHelp"
@@ -1053,7 +1053,7 @@ class AdminDashboard extends Component {
                             <div className="row col justify-content-center">
                               <button
                                 type="submit"
-                                class="btn btn-warning"
+                                className="btn btn-warning"
                                 onClick={() => this.delUser()}
                               >
                                 Delete

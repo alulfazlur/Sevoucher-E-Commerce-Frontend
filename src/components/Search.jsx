@@ -22,8 +22,8 @@ const Search = (props) => {
   );
 };
 
-Search.propTypes = {
-  placeholder: PropTypes.string.isRequired,
-};
+// Search.propTypes = {
+//   placeholder: PropTypes.string.isRequired,
+// };
 
 export default Search;

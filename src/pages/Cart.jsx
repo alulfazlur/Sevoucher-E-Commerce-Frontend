@@ -57,7 +57,7 @@ class Cart extends Component {
                   <i className="fas fa-shopping-cart"></i>
                   <Link onClick={() => this.props.deleteCart()}>
                     <i
-                      class="fas fa-trash pt-2"
+                      className="fas fa-trash pt-2"
                       style={{ color: "rgb(255, 145, 0)", fontSize:"20px" }}
                       data-toggle="tooltip"
                       data-placement="top"
@@ -65,8 +65,8 @@ class Cart extends Component {
                     >Empty Cart</i>
                   </Link>
                 </div>
-                <div class="table-responsive-sm">
-                  <table class="table">
+                <div className="table-responsive-sm">
+                  <table className="table">
                     <thead>
                       <tr>
                         <th scope="col">No.</th>
@@ -90,9 +90,9 @@ class Cart extends Component {
                             <td>{el.game_id.discount}</td>
                             <td>{el.price}</td>
                             <td>
-                              <div class="form-check">
+                              <div className="form-check">
                                 <input
-                                  class="form-check-input"
+                                  className="form-check-input"
                                   type="radio"
                                   id="gridRadios1"
                                   value={el.id}
@@ -113,12 +113,12 @@ class Cart extends Component {
                         <td></td>
                         <th scope="row">TOTAL PRICE</th>
                         {cartResume.slice(-1).map((el, index) => (
-                          <td>{el.total_price}</td>
+                          <td key={index}>{el.total_price}</td>
                         ))}
                         <td>
                           <Link onClick={() => this.props.deleteDetail()}>
                             <i
-                              class="fas fa-trash"
+                              className="fas fa-trash"
                               style={{ color: "rgb(255, 145, 0)" }}
                               data-toggle="tooltip"
                               data-placement="top"
@@ -131,7 +131,7 @@ class Cart extends Component {
                   </table>
                 </div>
                 <div className="number-back m-3 text-center">
-                  <i class="fas fa-money-bill"></i>
+                  <i className="fas fa-money-bill"></i>
                 </div>
                 Pilih Metode Pembayaran :
                 <PaymentMethod {...this.props} />

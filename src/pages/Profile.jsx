@@ -34,25 +34,18 @@ class Profile extends Component {
           }}
         />
       );
-    } 
-    if (localStorage.getItem("status") !== "buyer") {
-      return (
-        <Redirect
-          to={{
-            pathname: "/admin",
-          }}
-        />
-      );
-    } 
-    else {
+    } else {
       return (
         <React.Fragment>
           <div className="page-wrapper bg-gra-02 profile font-poppins">
             <div className="card-container">
               <span className="pro">PRO</span>
-              
-              {/* <img src={require("../images/ava.jpeg")} alt="user" /> */}
-              <img src={this.props.dataUser.avatar} alt="user" />
+
+              {localStorage.getItem("status") === "buyer" ? (
+                <img src={this.props.dataUser.avatar} alt="user" />
+              ) : (
+                <img src={require("../images/ava.jpeg")} alt="user" />
+              )}
               <h3>{this.props.dataUser.name}</h3>
               <h6>{this.props.dataUser.address}</h6>
               <p>{this.props.dataUser.email}</p>
@@ -60,7 +53,7 @@ class Profile extends Component {
                 <button className="primary ghost col" onClick={this.goHome}>
                   Home
                 </button>
-                 <button className="primary ghost col" onClick={this.goBio}>
+                <button className="primary ghost col" onClick={this.goBio}>
                   Edit Bio
                 </button>
                 <button className="primary ghost col" onClick={this.logOut}>

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import PaymentMethod from "../components/PaymentMethod";
 import { doLogOut, getBio } from "../store/actions/userAction";
 import {
   getCartHistory,
@@ -88,10 +86,58 @@ class History extends Component {
                   <div className="row col mb-3 justify-content-between">
                     <h2>{this.props.dataUser.name}, here is your History Cart :</h2>
                   </div>
-                  <i className="fas fa-shopping-cart"></i>
                 </div>
-                <div class="table-responsive-sm">
-                  <table class="table">
+                <div
+                className="btn-group btn-group-toggle row col-lg my-1"
+                data-toggle="buttons"
+              >
+                <label className="btn btn-outline-warning active category-btn col-lg mt-1">
+                  <input
+                    type="radio"
+                    name="sortCart"
+                    id="option1"
+                    autoComplete="off"
+                    value="latest"
+                    onClick={(e) => this.props.changeInputSort(e)}
+                  />
+                  Latest
+                </label>
+                <label className="btn btn-outline-warning active category-btn col-lg mt-1" >
+                  <input
+                    type="radio"
+                    name="sortCart"
+                    id="option2"
+                    autoComplete="off"
+                    value="newest"
+                    onClick={(e) => this.props.changeInputSort(e)}
+                  />
+                  Newest
+                </label>
+                <label className="btn btn-outline-warning active category-btn col-lg mt-1">
+                  <input
+                    type="radio"
+                    name="sortCart"
+                    id="option1"
+                    autoComplete="off"
+                    value="high"
+                    onClick={(e) => this.props.changeInputSort(e)}
+                  />
+                  High Price
+                </label>
+                <label className="btn btn-outline-warning active category-btn col-lg mt-1">
+                  <input
+                    type="radio"
+                    name="sortCart"
+                    id="option1"
+                    autoComplete="off"
+                    value="low"
+                    onClick={(e) => this.props.changeInputSort(e)}
+                  />
+                  Low Price
+                </label>
+              </div>
+                <div className="table-responsive-sm">
+                  <table className="table">
                     <thead>
                       <tr>
                         <th scope="col">No.</th>
@@ -126,55 +172,7 @@ class History extends Component {
                   </table>
                 </div>
               </div>
-              <div
-                className="btn-group btn-group-toggle col-lg mt-5"
-                data-toggle="buttons"
-              >
-                <label className="btn btn-outline-warning active category-btn">
-                  <input
-                    type="radio"
-                    name="sortCart"
-                    id="option1"
-                    autocomplete="off"
-                    value="latest"
-                    onClick={(e) => this.props.changeInputSort(e)}
-                  />
-                  Latest
-                </label>
-                <label className="btn btn-outline-warning category-btn">
-                  <input
-                    type="radio"
-                    name="sortCart"
-                    id="option2"
-                    autocomplete="off"
-                    value="newest"
-                    onClick={(e) => this.props.changeInputSort(e)}
-                  />
-                  Newest
-                </label>
-                <label className="btn btn-outline-warning active category-btn">
-                  <input
-                    type="radio"
-                    name="sortCart"
-                    id="option1"
-                    autocomplete="off"
-                    value="high"
-                    onClick={(e) => this.props.changeInputSort(e)}
-                  />
-                  High Price
-                </label>
-                <label className="btn btn-outline-warning active category-btn">
-                  <input
-                    type="radio"
-                    name="sortCart"
-                    id="option1"
-                    autocomplete="off"
-                    value="low"
-                    onClick={(e) => this.props.changeInputSort(e)}
-                  />
-                  Low Price
-                </label>
-              </div>
+              
             </div>
           </div>
           <Footer />

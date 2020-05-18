@@ -43,8 +43,8 @@ class Checkout extends Component {
                     details:
                   </h4>
                 </div>
-                <div class="table-responsive-sm">
-                  <table class="table">
+                <div className="table-responsive-sm">
+                  <table className="table">
                     <thead>
                       <tr>
                         <th scope="col">Game</th>
@@ -81,7 +81,7 @@ class Checkout extends Component {
 
                 <div className="d-flex justify content-between mb-4 mt-5">
                   <div className="number-back mr-2">
-                    <i class="fas fa-phone mt-1"></i>
+                    <i className="fas fa-phone mt-1"></i>
                   </div>
                   <div>Your phone number : {this.props.dataUser.phone}</div>
                   {/* <form>
@@ -94,7 +94,7 @@ class Checkout extends Component {
 
                 <div className="d-flex justify content-between mb-4 mt-5">
                   <div className="number-back mr-2">
-                    <i class="fas fa-envelope mt-1"></i>
+                    <i className="fas fa-envelope mt-1"></i>
                   </div>
                   <div>Your email : {this.props.dataUser.email}</div>
                   {/* <form>
