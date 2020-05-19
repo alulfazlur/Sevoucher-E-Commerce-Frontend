@@ -32,7 +32,8 @@ export default function paymentReducer(paymentState = initialState, action) {
       case "SUCCESS_GET_CART":
       return {
         ...paymentState,
-        cartResume : action.payload
+        cartResume : action.payload,
+        deleted : false
       };
       case "SUCCESS_GET_CART_HISTORY":
       return {
@@ -49,6 +50,7 @@ export default function paymentReducer(paymentState = initialState, action) {
       case "SUCCESS_DELETE_DETAIL":
       return {
         ...paymentState,
+        deleted : true
       };
       case "SUCCESS_DELETE_CART":
       return {

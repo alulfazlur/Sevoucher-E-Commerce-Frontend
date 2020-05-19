@@ -118,7 +118,7 @@ class Home extends Component {
           <div className="container mb-5">
             
             <div className="row">
-            {gameList.map((el, index) => (
+            {gameList.slice(0,8).map((el, index) => (
               <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6" key={index}>
                 <Link onClick={() => this.changeRouter(el.name)} >
                   <img

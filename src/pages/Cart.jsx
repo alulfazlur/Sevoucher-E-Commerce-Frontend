@@ -20,9 +20,20 @@ import {
 class Cart extends Component {
   componentDidMount = async () => {
     await this.props.getBio();
-    await this.props.getCartResume();
     await this.props.getCartDetail();
+    await this.props.getCartResume();
+    console.log("mounted")
+
   };
+  
+  componentDidUpdate = async(prevProps) => {
+    if (this.props.payment.deleted) {
+      console.log("this",this.props.payment.deleted)
+      console.log("prev",prevProps)
+      this.props.getCartDetail();
+      this.props.getCartResume();
+    }
+  }
 
   goToCheckout = async () => {
     await this.props.addPayment();
@@ -103,7 +114,7 @@ class Cart extends Component {
                               </div>
                             </td>
                           </tr>
-                        </React.Fragment>
+                          </React.Fragment>
                       ))}
                       <tr>
                         <td></td>
@@ -112,7 +123,7 @@ class Cart extends Component {
                         <td></td>
                         <td></td>
                         <th scope="row">TOTAL PRICE</th>
-                        {cartResume.slice(-1).map((el, index) => (
+                        {cartResume.slice(0,1).map((el, index) => (
                           <td key={index}>{el.total_price}</td>
                         ))}
                         <td>

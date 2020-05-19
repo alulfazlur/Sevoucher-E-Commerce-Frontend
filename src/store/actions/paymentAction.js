@@ -163,7 +163,6 @@ export const deleteDetail = () => {
       .then(async (response) => {
         alert("Item deleted");
         dispatch({ type: "SUCCESS_DELETE_DETAIL"});
-        window.location.reload()
       })
       .catch((error) => {
         alert("Choose the item that will be deleted");
@@ -186,7 +185,6 @@ export const deleteCart = () => {
       .then(async (response) => {
         alert("Cart deleted");
         dispatch({ type: "SUCCESS_DELETE_CART"});
-        window.location.reload()
       })
       .catch((error) => {
         console.log(error);

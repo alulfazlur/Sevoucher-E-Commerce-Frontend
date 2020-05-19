@@ -66,14 +66,15 @@ export const deleteVoucher = (props) => {
     await axios
       .delete(baseUrl + "/admin/game/voucher", {
         headers: {Authorization: `Bearer ${token}`},
-        params: {name : getState().game.gameNameDel,
-        vocuher: getState().game.voucherNameDel }}, {
+        params: {gameName : getState().voucher.gameNameDel,
+        voucher: getState().voucher.voucherNameDel }}, {
       })
       .then(async (response) => {
         alert(`Voucher ${getState().voucher.voucherNameDel} in ${getState().voucher.gameNameDel} is deleted`)
         dispatch({ type: "SUCCESS_REGISTER_VOUCHER" });
       })
       .catch((error) => {
+        alert(`Voucher ${getState().voucher.voucherNameDel} did not found`)
         console.log(error);
       });
   };

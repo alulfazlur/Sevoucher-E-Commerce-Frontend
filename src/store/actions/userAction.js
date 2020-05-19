@@ -58,19 +58,16 @@ export const doDeleteUser = () => {
   const tokenUser = localStorage.getItem("token");
   const endPoint = baseUrl + "/user/delete";
   return async (dispatch, getState) => {
-    const bodyRequest = {
-      username: getState().user.username,
-    };
-    await axios({
-      method: "DELETE",
-      url: endPoint,
-      headers: { Authorization: `Bearer ${tokenUser}` },
-      body: JSON.stringify(bodyRequest),
+    await axios.delete(endPoint, {
+      headers: {Authorization: `Bearer ${tokenUser}`},
+      params: {username : getState().voucher.username}}, {
     })
       .then(async (response) => {
+        alert("User deleted")
         dispatch({ type: "SUCCESS_DELETE_USER" });
       })
       .catch((error) => {
+        alert("User did not found")
         console.log(error);
       });
   };
