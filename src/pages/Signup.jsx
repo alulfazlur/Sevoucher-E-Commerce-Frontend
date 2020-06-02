@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { changeInputUser, doSignUpBuyer } from "../store/actions/userAction";
 
@@ -99,7 +100,7 @@ class SignUp extends Component {
                     >
                       Sign Up
                     </button>
-                    <p style={{color:"white", marginTop : "20px"}}>Already have an account? <a href="/signin" style={ { color: "rgb(255, 145, 0)" }}>Sign In</a></p>
+                    <p style={{color:"white", marginTop : "20px"}}>Already have an account? <Link to="/signin" style={ { color: "rgb(255, 145, 0)" }}>Sign In</Link></p>
                   </div>
                 </form>
               </div>

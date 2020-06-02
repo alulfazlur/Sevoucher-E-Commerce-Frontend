@@ -7,7 +7,7 @@ const Header = (props) => {
     <React.Fragment>
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark py-0 bg-orange text-white">
         {/* <div className="container"> */}
-        <Link to="/" className="navbar-brand ml-lg-5" href="#">
+        <Link to="/" className="navbar-brand ml-lg-5">
           <img
             className="navbar-brand"
             src={require("../images/logo/Logo_Full_Inverse.png")}
@@ -28,14 +28,14 @@ const Header = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="nav navbar-nav navbar-center mr-auto mt-2 mt-lg-0">
             <li className="nav-item active">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 Home <span className="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item active">
-              <a className="nav-link" href="/games">
+              <Link className="nav-link" to="/games">
                 Shop
-              </a>
+              </Link>
             </li>
             {/* <li className="nav-item">
               <a className="nav-link" href="/">
@@ -55,7 +55,7 @@ const Header = (props) => {
           ) : (
             <ul className="nav navbar-nav navbar-right mr-auto mt-2 mt-lg-0">
               <li className="nav-item active">
-                <Link to="/signin" className="nav-link" href="/">
+                <Link to="/signin" className="nav-link">
                   Sign In
                 </Link>
               </li>
