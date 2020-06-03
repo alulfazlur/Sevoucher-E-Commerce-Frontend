@@ -26,6 +26,8 @@ class Games extends Component {
   };
 
   render() {
+    const categoryParams = this.props.match.params.filter;
+    console.warn(this.props)
     let gameList = this.props.game;
     if (this.props.search && this.props.search.length > 2) {
       gameList = gameList.filter((item) => {
@@ -39,9 +41,9 @@ class Games extends Component {
       });
     }
 
-    if (this.props.category) {
+    if (categoryParams) {
       gameList = gameList.filter((item) => {
-        if (item.category === this.props.category) {
+        if (item.category === categoryParams) {
           return item;
         }
         return false;
@@ -101,6 +103,7 @@ class Games extends Component {
                     autoComplete="off"
                     value=""
                     onClick={(e) => this.changeRouterFilter(e)}
+                    checked={categoryParams ? false : true}
                   />
                   All
                 </label>
@@ -112,6 +115,7 @@ class Games extends Component {
                     autoComplete="off"
                     value="mobile"
                     onClick={(e) => this.changeRouterFilter(e)}
+                    checked={categoryParams === "mobile" ? true : false}
                   />
                   Mobile
                 </label>
@@ -123,6 +127,7 @@ class Games extends Component {
                     autoComplete="off"
                     value="pc"
                     onClick={(e) => this.changeRouterFilter(e)}
+                    checked={categoryParams === "pc" ? true : false}
                   />
                   PC
                 </label>
@@ -134,6 +139,7 @@ class Games extends Component {
                     autoComplete="off"
                     value="credits"
                     onClick={(e) => this.changeRouterFilter(e)}
+                    checked={categoryParams === "credits" ? true : false}
                   />
                   Credits
                 </label>

@@ -91,7 +91,7 @@ export const getCartHistory = (props) => {
   return async (dispatch, getState) => {
     const token = localStorage.getItem("token");
     await axios
-      .get("http://0.0.0.0:9000/cart/history", {
+      .get(baseUrl + "/cart/history", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -114,7 +114,7 @@ export const addPayment = (props) => {
     };
     const myJSON = JSON.stringify(bodyRequest);
     await axios
-      .put("http://0.0.0.0:9000/cart/payment", myJSON, {
+      .put(baseUrl + "/cart/payment", myJSON, {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           Accept: "application/json; charset=utf-8",
@@ -136,7 +136,7 @@ export const doCheckout = (props) => {
     const token = localStorage.getItem("token");
     await axios({
       method: "PUT",
-      url: "http://0.0.0.0:9000/cart/checkout",
+      url: baseUrl + "/cart/checkout",
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(async (response) => {
@@ -157,7 +157,7 @@ export const deleteDetail = () => {
       data: {
         id: getState().payment.trans_id
       },
-      url: "http://0.0.0.0:9000/cart/detail",
+      url: baseUrl + "/cart/detail",
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(async (response) => {
@@ -179,7 +179,7 @@ export const deleteCart = () => {
       method: "DELETE",
       data: {
       },
-      url: "http://0.0.0.0:9000/cart",
+      url: baseUrl + "/cart",
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(async (response) => {
