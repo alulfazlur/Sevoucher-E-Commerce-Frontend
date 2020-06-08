@@ -10,8 +10,8 @@ import { changeInputGame, getGameList } from "../store/actions/gameAction";
 
 class Home extends Component {
   componentDidMount = async () => {
-    await this.props.getBio();
     await this.props.getGameList();
+    await this.props.getBio();
   };
 
   changeRouter = (namaGame) => {
