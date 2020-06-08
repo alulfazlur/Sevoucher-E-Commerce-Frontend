@@ -1,5 +1,5 @@
 ## Deploy Links
-### https://sevoucher.netlify.app
+### https://sevoucher.fazlurtech.my.id
 
 
 =================================================================================================
