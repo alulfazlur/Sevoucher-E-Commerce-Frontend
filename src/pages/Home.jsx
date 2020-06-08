@@ -11,7 +11,7 @@ import { changeInputGame, getGameList } from "../store/actions/gameAction";
 class Home extends Component {
   componentDidMount = async () => {
     await this.props.getGameList();
-    await this.props.getBio();
+    if (localStorage.getItem("login_status")) {await this.props.getBio()};
   };
 
   changeRouter = (namaGame) => {
@@ -23,7 +23,7 @@ class Home extends Component {
   render() {
 
     let gameList = this.props.game;
-
+    if (gameList){
       const sorted = (a, b) => {
           const gameA = a.sold;
           const gameB = b.sold;
@@ -35,7 +35,7 @@ class Home extends Component {
           }
           return comparison;
       };
-      gameList = gameList.sort(sorted);
+      gameList = gameList.sort(sorted);}
 
     return (
       <React.Fragment>
@@ -120,13 +120,13 @@ class Home extends Component {
             <div className="row">
             {gameList.slice(0,8).map((el, index) => (
               <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6" key={index}>
-                <Link onClick={() => this.changeRouter(el.name)} >
+                <div onClick={() => this.changeRouter(el.name)} >
                   <img
                     className="tile"
                     src={el.tile}
                     alt="game_tile"
                   />
-                </Link>
+                </div>
               </div>
               ))}
 
