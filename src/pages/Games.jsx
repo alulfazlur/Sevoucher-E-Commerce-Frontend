@@ -16,7 +16,7 @@ import {
 class Games extends Component {
   componentDidMount = async () => {
     await this.props.getGameList();
-    await this.props.getBio();
+    if (localStorage.getItem("login_status")) {await this.props.getBio()};
   };
 
   changeRouterFilter = async (e) => {

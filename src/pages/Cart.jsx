@@ -19,7 +19,7 @@ import {
 
 class Cart extends Component {
   componentDidMount = async () => {
-    await this.props.getBio();
+    if (localStorage.getItem("login_status")) {await this.props.getBio()};
     await this.props.getCartDetail();
     await this.props.getCartResume();
     console.log("mounted")

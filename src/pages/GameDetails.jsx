@@ -14,7 +14,7 @@ import {
 import { addToCart } from "../store/actions/paymentAction"
 class GameDetails extends Component {
   componentDidMount = async () => {
-    await this.props.getBio();
+    if (localStorage.getItem("login_status")) {await this.props.getBio()};
     await this.props.getGameList();
     await this.props.getVouchersGame();
   };
