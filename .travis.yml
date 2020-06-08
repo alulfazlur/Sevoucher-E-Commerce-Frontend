@@ -1,0 +1,46 @@
+language: node_js
+
+node_js:
+- '10'
+
+os: linux
+
+sudo: required
+
+cache:
+  directories:
+    - "$HOME/google-cloud-sdk/"
+
+services:
+- docker
+env:
+  global:
+  - TRAVIS_ALLOW_FAILURE=false
+install:
+- npm install
+- npm run build
+#- npm run test
+
+before_script:
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+script:
+
+- echo "skipping test"
+
+before_deploy:
+  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash >/dev/null; fi
+  - source /home/travis/google-cloud-sdk/path.bash.inc
+  - gcloud --quiet version
+  - gcloud --quiet components update
+  - gcloud --quiet components update kubectl
+
+after_success:
+- npm run coverage
+
+deploy:
+- provider: script
+  skip_cleanup: true
+  script:
+    - bash deploy.sh
+  on:
+    all_branches: true
