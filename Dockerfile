@@ -6,6 +6,6 @@ RUN mkdir -p /coba/log
 
 COPY default.conf /etc/nginx/conf.d
 
-ADD . /coba/www/Portofolio-E-Commerce-Frontend
+ADD build/. /coba/www/Portofolio-E-Commerce-Frontend
 
 WORKDIR /coba/www/Portofolio-E-Commerce-Frontend

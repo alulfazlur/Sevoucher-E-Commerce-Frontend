@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = process.env.REACT_APP_PUBLIC_URL
+const baseUrl = "https://sevoucher-be.fazlurtech.my.id"
 
 export const changeInputPayment = (e) => {
   return {
