@@ -1,5 +1,6 @@
-## Deploy Links
-### https://sevoucher.fazlurtech.my.id
+## Deployed
+
+Available on [this](https://sevoucher.fazlurtech.my.id) site
 
 
 =================================================================================================
