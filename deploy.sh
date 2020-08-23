@@ -1,5 +1,5 @@
-sudo docker build -f "Dockerfile" -t alulfazlur/react-tutorial:$TRAVIS_BUILD_NUMBER .
-sudo docker push alulfazlur/react-tutorial:$TRAVIS_BUILD_NUMBER
+sudo docker build -f "Dockerfile" -t alulfazlur/sevoucher-fe:$TRAVIS_BUILD_NUMBER .
+sudo docker push alulfazlur/sevoucher-fe:$TRAVIS_BUILD_NUMBER
 
 echo $GCLOUD_SERVICE_KEY_PRD | base64 --decode > ${HOME}/gcloud-service-key.json
 gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
@@ -10,4 +10,4 @@ kubectl config view
 kubectl config current-context
 
  ## deploy api server
-kubectl -n alta10 set image deployment/sevoucher-fe sevoucher-fe=alulfazlur/react-tutorial:$TRAVIS_BUILD_NUMBER
+kubectl -n alta10 set image deployment/sevoucher-fe sevoucher-fe=alulfazlur/sevoucher-fe:$TRAVIS_BUILD_NUMBER
